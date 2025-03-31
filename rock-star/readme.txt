@@ -2,7 +2,7 @@
 Contributors: catchthemes
 Tags: blog, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, front-page-post-form, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 Requires at least: 5.6
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -158,6 +158,9 @@ Number:
 For more FAQs, visit https://catchthemes.com/frequently-asked-questions/
 
 == Change Log ==
+
+= 1.8.5 (Released: March 31, 2025) =
+* Updated: WordPress 6.7 ready
 
 = 1.8.4 (Released: August 07, 2024) =
 * Updated: WordPress 6.6 ready
