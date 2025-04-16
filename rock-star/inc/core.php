@@ -1488,7 +1488,7 @@ if ( ! function_exists( 'rock_star_page_post_meta' ) ) :
 				' . esc_html__( 'By', 'rock-star' ) . '
 
 				<span class="author vcard">
-					<a class="url fn n" href="' . esc_url( $author_url ) . '" title="View all posts by ' . esc_attr( get_the_author() ) . '" rel="author">' . get_the_author() . '</a>
+					<a class="url fn n" href="' . esc_url( $author_url ) . '" title="View all posts by ' . esc_attr( get_the_author() ) . '" rel="author">' . esc_html( get_the_author() ) . '</a>
 					</span>
 			</span>';
 
