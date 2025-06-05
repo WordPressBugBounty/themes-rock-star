@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rock Star\n"
 "Report-Msgid-Bugs-To: https://catchthemes.com/contact-us/\n"
-"POT-Creation-Date: 2025-04-16 12:51+0545\n"
+"POT-Creation-Date: 2025-06-05 18:03+0545\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Catch Themes <info@catchthemes.com>\n"
@@ -91,8 +91,8 @@ msgstr ""
 msgid "Pages:"
 msgstr "Pages:"
 
-#: ../content-page.php:37 ../inc/core.php:674 ../inc/core.php:693
-#: ../inc/core.php:819
+#: ../content-page.php:37 ../inc/core.php:681 ../inc/core.php:700
+#: ../inc/core.php:832
 msgid "Edit"
 msgstr "Editer"
 
@@ -133,111 +133,111 @@ msgstr "Erreur 404"
 msgid "Page %s"
 msgstr "Page %s"
 
-#: ../inc/core.php:107 ../inc/menus.php:21
+#: ../inc/core.php:111 ../inc/menus.php:21
 msgid "Primary Menu"
 msgstr "Premier menu"
 
-#: ../inc/core.php:291
+#: ../inc/core.php:294
 msgid "expand child menu"
 msgstr "développer menu enfant"
 
-#: ../inc/core.php:292
+#: ../inc/core.php:295
 msgid "collapse child menu"
 msgstr "fermer le menu enfant"
 
-#: ../inc/core.php:309
+#: ../inc/core.php:313
 msgctxt "Courgette font: on or off"
 msgid "on"
 msgstr "ouvert"
 
-#: ../inc/core.php:632
+#: ../inc/core.php:640
 msgid "Post navigation"
 msgstr "Navigation article"
 
-#: ../inc/core.php:643
+#: ../inc/core.php:650
 msgid "Previous page"
 msgstr "Article précédent"
 
-#: ../inc/core.php:644
+#: ../inc/core.php:651
 msgid "Next page"
 msgstr "Article suivant"
 
-#: ../inc/core.php:645 ../inc/customizer-includes/news-ticker.php:129
-#: ../inc/default-options.php:200 ../inc/default-options.php:230
-#: ../inc/default-options.php:321
+#: ../inc/core.php:652 ../inc/customizer-includes/news-ticker.php:129
+#: ../inc/default-options.php:208 ../inc/default-options.php:240
+#: ../inc/default-options.php:337
 msgid "Page"
 msgstr "Page"
 
-#: ../inc/core.php:650
+#: ../inc/core.php:656
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Anciens articles"
 
-#: ../inc/core.php:651
+#: ../inc/core.php:657
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Récents articles <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../inc/core.php:674
+#: ../inc/core.php:681
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: ../inc/core.php:684
+#: ../inc/core.php:691
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"citations dites\">citations dites:</span>"
 
-#: ../inc/core.php:690
+#: ../inc/core.php:697
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
-#: ../inc/core.php:697
+#: ../inc/core.php:704
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: ../inc/core.php:800 ../inc/core.php:910
+#: ../inc/core.php:812 ../inc/core.php:931
 msgctxt "Used before publish date."
 msgid "<span class=\"screen-reader-text\">Posted on</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Posté le </ span>"
 
-#: ../inc/core.php:807 ../inc/core.php:919
+#: ../inc/core.php:820 ../inc/core.php:941
 msgctxt "Used before post author name."
 msgid "<span class=\"screen-reader-text\">Author</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Auteur </ span>"
 
-#: ../inc/core.php:815
+#: ../inc/core.php:828
 msgid "Leave a comment"
 msgstr "Laisser un commentaire"
 
-#: ../inc/core.php:815
+#: ../inc/core.php:828
 msgid "1 Comment"
 msgstr "1 commentaire"
 
-#: ../inc/core.php:815
+#: ../inc/core.php:828
 msgid "% Comments"
 msgstr "% Commentaires"
 
-#: ../inc/core.php:836 ../inc/core.php:844 ../inc/core.php:876
-#: ../inc/core.php:886
+#: ../inc/core.php:850 ../inc/core.php:859 ../inc/core.php:893
+#: ../inc/core.php:904
 msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ", "
 
-#: ../inc/core.php:839 ../inc/core.php:879
+#: ../inc/core.php:854 ../inc/core.php:897
 msgctxt "Used before category names."
 msgid "<span class=\"screen-reader-text\">Categories</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Catégories </ span>"
 
-#: ../inc/core.php:847 ../inc/core.php:889
+#: ../inc/core.php:863 ../inc/core.php:908
 msgctxt "Used before tag names."
 msgid "<span class=\"screen-reader-text\">Tags</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Balises </ span>"
 
-#: ../inc/core.php:1400
+#: ../inc/core.php:1429
 msgid "Y"
 msgstr "Y"
 
-#: ../inc/core.php:1407
+#: ../inc/core.php:1436
 #, fuzzy, php-format
 #| msgctxt "1: Year, 2: Site Title with home URL"
 #| msgid "Copyright &copy; %1$s %2$s. All Rights Reserved."
@@ -245,31 +245,31 @@ msgctxt "1: Year, 2: Site Title with home URL, 3: Privacy Policy Link"
 msgid "Copyright &copy; %1$s %2$s. All Rights Reserved. %3$s"
 msgstr "Copyright &copy; %1$s %2$s. Tous Les Droits Sont Réservés."
 
-#: ../inc/core.php:1407
+#: ../inc/core.php:1436
 msgid "by"
 msgstr "par"
 
-#: ../inc/core.php:1468
+#: ../inc/core.php:1499
 msgid "Scroll Up"
 msgstr "Faire remonter"
 
-#: ../inc/core.php:1483
+#: ../inc/core.php:1515
 msgid "Posted on"
 msgstr "Posté le"
 
-#: ../inc/core.php:1488
+#: ../inc/core.php:1520
 msgid "By"
 msgstr "Par"
 
-#: ../inc/core.php:1588
+#: ../inc/core.php:1622
 msgid "Next post:"
 msgstr "Article suivant&nbsp;:"
 
-#: ../inc/core.php:1591
+#: ../inc/core.php:1625
 msgid "Previous post:"
 msgstr "Article précédent&nbsp;:"
 
-#: ../inc/core.php:1632 ../inc/customizer-includes/custom-controls.php:36
+#: ../inc/core.php:1667 ../inc/customizer-includes/custom-controls.php:36
 msgid ""
 "Hold down the Ctrl (windows) / Command (Mac) button to select multiple "
 "options."
@@ -277,60 +277,60 @@ msgstr ""
 "Maintenez le bouton / Commande (Mac) Ctrl (windows) pour sélectionner "
 "plusieurs options."
 
-#: ../inc/core.php:1716 ../inc/widgets/instagram.php:78
+#: ../inc/core.php:1754 ../inc/widgets/instagram.php:78
 msgid "Small"
 msgstr "Petit"
 
-#: ../inc/core.php:1717
+#: ../inc/core.php:1755
 msgid "S"
 msgstr ""
 
-#: ../inc/core.php:1722
+#: ../inc/core.php:1760
 msgid "Normal"
 msgstr ""
 
-#: ../inc/core.php:1723
+#: ../inc/core.php:1761
 msgid "M"
 msgstr ""
 
-#: ../inc/core.php:1728 ../inc/default-options.php:389
+#: ../inc/core.php:1766 ../inc/default-options.php:409
 #: ../inc/widgets/instagram.php:79
 msgid "Large"
 msgstr "Large"
 
-#: ../inc/core.php:1729
+#: ../inc/core.php:1767
 msgid "L"
 msgstr ""
 
-#: ../inc/core.php:1734
+#: ../inc/core.php:1772
 msgid "Huge"
 msgstr ""
 
-#: ../inc/core.php:1735
+#: ../inc/core.php:1773
 msgid "XL"
 msgstr ""
 
-#: ../inc/core.php:1745
+#: ../inc/core.php:1783
 msgid "White"
 msgstr ""
 
-#: ../inc/core.php:1750
+#: ../inc/core.php:1788
 msgid "Black"
 msgstr ""
 
-#: ../inc/core.php:1755
+#: ../inc/core.php:1793
 msgid "Gray"
 msgstr ""
 
-#: ../inc/core.php:1760
+#: ../inc/core.php:1798
 msgid "Blue"
 msgstr ""
 
-#: ../inc/core.php:1765
+#: ../inc/core.php:1803
 msgid "Yellow"
 msgstr ""
 
-#: ../inc/core.php:1770
+#: ../inc/core.php:1808
 #, fuzzy
 #| msgid "Reddit"
 msgid "Red"
@@ -755,379 +755,392 @@ msgstr "Rock Star Pro"
 msgid "Upgrade Now"
 msgstr "Mettre à jour maintenant"
 
-#: ../inc/default-options.php:53 ../inc/widgets/featured-posts.php:41
+#: ../inc/default-options.php:55 ../inc/widgets/featured-posts.php:41
 msgid "Read More ..."
 msgstr "Lire la suite . . ."
 
-#: ../inc/default-options.php:62
+#: ../inc/default-options.php:64
 msgid "Search..."
 msgstr "Recherche…"
 
-#: ../inc/default-options.php:117 ../inc/default-options.php:559
+#: ../inc/default-options.php:120 ../inc/default-options.php:593
 msgid "Primary Sidebar, Content"
 msgstr "Première barre latéral, contenu"
 
-#: ../inc/default-options.php:118 ../inc/default-options.php:564
+#: ../inc/default-options.php:121 ../inc/default-options.php:598
 msgid "Content, Primary Sidebar"
 msgstr "Contenu, première barre latérale"
 
-#: ../inc/default-options.php:119 ../inc/default-options.php:569
+#: ../inc/default-options.php:122 ../inc/default-options.php:603
 msgid "No Sidebar ( Full Width )"
 msgstr "Pas de barre latérale (largeur totale)"
 
-#: ../inc/default-options.php:132
+#: ../inc/default-options.php:136
 msgid "Excerpt Image Top"
 msgstr "Haut de l'image"
 
-#: ../inc/default-options.php:133
+#: ../inc/default-options.php:137
 msgid "Show Full Content (No Featured Image)"
 msgstr "Afficher le contenu complet (pas de description photo)"
 
-#: ../inc/default-options.php:147 ../inc/default-options.php:183
+#: ../inc/default-options.php:152 ../inc/default-options.php:190
 msgid "Homepage / Frontpage"
 msgstr "Page d'accueil / Première page"
 
-#: ../inc/default-options.php:148
+#: ../inc/default-options.php:153
 msgid "Excluding Homepage"
 msgstr "Hors la page d'accueil"
 
-#: ../inc/default-options.php:149
+#: ../inc/default-options.php:154
 msgid "Excluding Homepage, Page/Post Featured Image"
 msgstr "Hors accueil, la page / Affiche le descriptive des photos"
 
-#: ../inc/default-options.php:150 ../inc/default-options.php:184
+#: ../inc/default-options.php:155 ../inc/default-options.php:191
 msgid "Entire Site"
 msgstr "Tout le site"
 
-#: ../inc/default-options.php:151
+#: ../inc/default-options.php:156
 msgid "Entire Site, Page/Post Featured Image"
 msgstr "Tout le site, la page / Affiche le descriptif des photos"
 
-#: ../inc/default-options.php:152
+#: ../inc/default-options.php:157
 msgid "Pages and Posts"
 msgstr "Pages et messages"
 
-#: ../inc/default-options.php:153 ../inc/default-options.php:185
-#: ../inc/default-options.php:393
+#: ../inc/default-options.php:158 ../inc/default-options.php:192
+#: ../inc/default-options.php:413
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: ../inc/default-options.php:167 ../inc/default-options.php:622
+#: ../inc/default-options.php:173 ../inc/default-options.php:658
 msgid "Full Image"
 msgstr "Pleine image"
 
-#: ../inc/default-options.php:168
+#: ../inc/default-options.php:174
 msgid "Large Image"
 msgstr "Grande image"
 
-#: ../inc/default-options.php:169 ../inc/default-options.php:627
+#: ../inc/default-options.php:175 ../inc/default-options.php:663
 msgid "Slider Image"
 msgstr "Curseur de l'image"
 
-#: ../inc/default-options.php:199 ../inc/default-options.php:229
-#: ../inc/default-options.php:320
+#: ../inc/default-options.php:207 ../inc/default-options.php:239
+#: ../inc/default-options.php:336
 msgid "Demo"
 msgstr "Démo"
 
-#: ../inc/default-options.php:214
+#: ../inc/default-options.php:223
 msgid "Below Slider / Header Image"
 msgstr "Sous le curseur / Image en-tête"
 
-#: ../inc/default-options.php:215
+#: ../inc/default-options.php:224
 msgid "Above Content"
 msgstr "Au-dessus du contenu"
 
-#: ../inc/default-options.php:244
+#: ../inc/default-options.php:255
 msgid "1 column"
 msgstr "1 colonnes"
 
-#: ../inc/default-options.php:245
+#: ../inc/default-options.php:256
 msgid "2 columns"
 msgstr "2 colonnes"
 
-#: ../inc/default-options.php:246
+#: ../inc/default-options.php:257
 msgid "3 columns"
 msgstr "3 colonnes"
 
-#: ../inc/default-options.php:247
+#: ../inc/default-options.php:258
 msgid "4 columns"
 msgstr "4 colonnes"
 
-#: ../inc/default-options.php:248
+#: ../inc/default-options.php:259
 msgid "5 columns"
 msgstr "5 colonnes"
 
-#: ../inc/default-options.php:262 ../inc/widgets/featured-posts.php:134
+#: ../inc/default-options.php:274 ../inc/widgets/featured-posts.php:134
 msgid "Show Excerpt"
 msgstr "Montrer le résumé"
 
-#: ../inc/default-options.php:263
+#: ../inc/default-options.php:275
 msgid "Show Full Content"
 msgstr "Afficher le contenu complet"
 
-#: ../inc/default-options.php:264
+#: ../inc/default-options.php:276
 msgid "Hide Content"
 msgstr "Masquer le contenu"
 
-#: ../inc/default-options.php:278 ../inc/widgets/featured-posts.php:88
+#: ../inc/default-options.php:291 ../inc/widgets/featured-posts.php:88
 msgid "Top"
 msgstr "Haut"
 
-#: ../inc/default-options.php:279
+#: ../inc/default-options.php:292
 msgid "Bottom"
 msgstr "Bas"
 
-#: ../inc/default-options.php:292
+#: ../inc/default-options.php:306
 msgid "No repeat"
 msgstr "Pas de répétition"
 
-#: ../inc/default-options.php:293
+#: ../inc/default-options.php:307
 msgid "Tile"
 msgstr "Titre"
 
-#: ../inc/default-options.php:306
+#: ../inc/default-options.php:321
 msgid "Scroll"
 msgstr "Glisser (rouler)"
 
-#: ../inc/default-options.php:307
+#: ../inc/default-options.php:322
 msgid "Fixed"
 msgstr "Fixé"
 
-#: ../inc/default-options.php:335
+#: ../inc/default-options.php:352
 msgid "Fade"
 msgstr "Fondu"
 
-#: ../inc/default-options.php:336
+#: ../inc/default-options.php:353
 msgid "Fade Out"
 msgstr "Disparaître"
 
-#: ../inc/default-options.php:337
+#: ../inc/default-options.php:354
 msgid "None"
 msgstr "Aucun"
 
-#: ../inc/default-options.php:338
+#: ../inc/default-options.php:355
 msgid "Scroll Horizontal"
 msgstr "Défilement horizontal"
 
-#: ../inc/default-options.php:339
+#: ../inc/default-options.php:356
 msgid "Scroll Vertical"
 msgstr "Défilement Vertical"
 
-#: ../inc/default-options.php:340
+#: ../inc/default-options.php:357
 msgid "Flip Horizontal"
 msgstr "Retourner horizontalement"
 
-#: ../inc/default-options.php:341
+#: ../inc/default-options.php:358
 msgid "Flip Vertical"
 msgstr "Symétrie axe vertical"
 
-#: ../inc/default-options.php:342
+#: ../inc/default-options.php:359
 msgid "Tile Slide"
 msgstr "Titre diapositive"
 
-#: ../inc/default-options.php:343
+#: ../inc/default-options.php:360
 msgid "Tile Blind"
 msgstr "Titre aveugle"
 
-#: ../inc/default-options.php:356
+#: ../inc/default-options.php:374
 msgid "True"
 msgstr "Vrai"
 
-#: ../inc/default-options.php:357
+#: ../inc/default-options.php:375
 msgid "Wait"
 msgstr "Attendez"
 
-#: ../inc/default-options.php:358
+#: ../inc/default-options.php:376
 msgid "False"
 msgstr "Faux"
 
-#: ../inc/default-options.php:372
+#: ../inc/default-options.php:391
 msgid "Default(Older Posts/Newer Posts)"
 msgstr "Par défaut (messages âgées / plus récents messages)"
 
-#: ../inc/default-options.php:373
+#: ../inc/default-options.php:392
 msgid "Numeric"
 msgstr "Numérique"
 
-#: ../inc/default-options.php:374
+#: ../inc/default-options.php:393
 msgid "Infinite Scroll (Click)"
 msgstr "Infini Scroll (Cliquez)"
 
-#: ../inc/default-options.php:375
+#: ../inc/default-options.php:394
 msgid "Infinite Scroll (Scroll)"
 msgstr "Infini Scroll (défilement)"
 
-#: ../inc/default-options.php:390
+#: ../inc/default-options.php:410
 msgid "Full size"
 msgstr "Taille réelle"
 
-#: ../inc/default-options.php:391
+#: ../inc/default-options.php:411
 msgid "Slider Image Size"
 msgstr "Taille de l'image glisser"
 
-#: ../inc/default-options.php:392
+#: ../inc/default-options.php:412
 msgid "Featured Image Size"
 msgstr "Taille de l'image en vedette"
 
-#: ../inc/default-options.php:408
+#: ../inc/default-options.php:429
 msgid "Facebook"
 msgstr "Facebook"
 
-#: ../inc/default-options.php:412
+#: ../inc/default-options.php:433
 msgid "Twitter"
 msgstr "Twitter"
 
-#: ../inc/default-options.php:416
+#: ../inc/default-options.php:437
+#, fuzzy
+#| msgid "Twitter"
+msgid "X-Twitter"
+msgstr "Twitter"
+
+#: ../inc/default-options.php:441
 msgid "Googleplus"
 msgstr "Googleplus"
 
-#: ../inc/default-options.php:420 ../inc/social-icons.php:32
-#: ../inc/social-icons.php:34
+#: ../inc/default-options.php:445
 msgid "Email"
 msgstr "Email"
 
-#: ../inc/default-options.php:424
+#: ../inc/default-options.php:449
 msgid "Feed"
 msgstr "Feed"
 
-#: ../inc/default-options.php:428
+#: ../inc/default-options.php:453
 msgid "WordPress"
 msgstr "Wordpress"
 
-#: ../inc/default-options.php:432
+#: ../inc/default-options.php:457
 msgid "GitHub"
 msgstr "GitHub"
 
-#: ../inc/default-options.php:436
+#: ../inc/default-options.php:461
 msgid "LinkedIn"
 msgstr "Linkedln"
 
-#: ../inc/default-options.php:440
+#: ../inc/default-options.php:465
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: ../inc/default-options.php:444
+#: ../inc/default-options.php:469
 msgid "Flickr"
 msgstr "Flickr"
 
-#: ../inc/default-options.php:448
+#: ../inc/default-options.php:473
 msgid "Vimeo"
 msgstr "Vimeo"
 
-#: ../inc/default-options.php:452
+#: ../inc/default-options.php:477
 msgid "YouTube"
 msgstr "Youtube"
 
-#: ../inc/default-options.php:456
+#: ../inc/default-options.php:481
 msgid "Tumblr"
 msgstr "Tumblr"
 
-#: ../inc/default-options.php:460 ../inc/widgets/instagram.php:26
+#: ../inc/default-options.php:485 ../inc/widgets/instagram.php:26
 msgid "Instagram"
 msgstr "Instagram"
 
-#: ../inc/default-options.php:464
-msgid "PollDaddy"
-msgstr "PollDaddy"
-
-#: ../inc/default-options.php:468
+#: ../inc/default-options.php:489
 msgid "CodePen"
 msgstr "CodePen"
 
-#: ../inc/default-options.php:472
+#: ../inc/default-options.php:493
 msgid "Path"
 msgstr "Path"
 
-#: ../inc/default-options.php:476
+#: ../inc/default-options.php:497
 msgid "Dribbble"
 msgstr "Dribbble"
 
-#: ../inc/default-options.php:480
+#: ../inc/default-options.php:501
 msgid "Skype"
 msgstr "Skype"
 
-#: ../inc/default-options.php:484
+#: ../inc/default-options.php:505
 msgid "Digg"
 msgstr "Digg"
 
-#: ../inc/default-options.php:488
+#: ../inc/default-options.php:509
 msgid "Reddit"
 msgstr "Reddit"
 
-#: ../inc/default-options.php:492
+#: ../inc/default-options.php:513
 msgid "Stumbleupon"
 msgstr "Stumbleupon"
 
-#: ../inc/default-options.php:496
+#: ../inc/default-options.php:517
 msgid "Pocket"
 msgstr "Pocket"
 
-#: ../inc/default-options.php:500
+#: ../inc/default-options.php:521
 msgid "DropBox"
 msgstr "DropBox"
 
-#: ../inc/default-options.php:504
+#: ../inc/default-options.php:525
 msgid "Spotify"
 msgstr "Spotify"
 
-#: ../inc/default-options.php:508
+#: ../inc/default-options.php:529
 msgid "Foursquare"
 msgstr "Foursquare"
 
-#: ../inc/default-options.php:512
+#: ../inc/default-options.php:533
 msgid "Twitch"
 msgstr "Twitch"
 
-#: ../inc/default-options.php:516
+#: ../inc/default-options.php:537
 msgid "Website"
 msgstr "Site web"
 
-#: ../inc/default-options.php:520
-msgid "Phone"
-msgstr "Tél"
+#: ../inc/default-options.php:541
+msgid "Mobile Phone"
+msgstr ""
 
-#: ../inc/default-options.php:524
+#: ../inc/default-options.php:545
 msgid "Handset"
 msgstr "Handset"
 
-#: ../inc/default-options.php:528
+#: ../inc/default-options.php:549
 msgid "Cart"
 msgstr "Panier"
 
-#: ../inc/default-options.php:532
+#: ../inc/default-options.php:553
 msgid "Cloud"
 msgstr "Cloud"
 
-#: ../inc/default-options.php:536 ../inc/widgets/tours.php:224
+#: ../inc/default-options.php:557 ../inc/widgets/tours.php:224
 msgid "Link"
 msgstr "Lien"
 
-#: ../inc/default-options.php:554 ../inc/default-options.php:585
-#: ../inc/default-options.php:612 ../inc/widgets/tag-cloud.php:76
+#: ../inc/default-options.php:561
+msgid "Bluesky"
+msgstr ""
+
+#: ../inc/default-options.php:565
+msgid "Threads"
+msgstr ""
+
+#: ../inc/default-options.php:569
+msgid "Tiktok"
+msgstr ""
+
+#: ../inc/default-options.php:588 ../inc/default-options.php:620
+#: ../inc/default-options.php:648 ../inc/widgets/tag-cloud.php:76
 msgid "Default"
 msgstr "Par défaut"
 
-#: ../inc/default-options.php:590
+#: ../inc/default-options.php:625
 msgid "Enable"
 msgstr "Permettre"
 
-#: ../inc/default-options.php:595
+#: ../inc/default-options.php:630
 msgid "Disable"
 msgstr "Désactiver"
 
-#: ../inc/default-options.php:617
+#: ../inc/default-options.php:653
 msgid "Featured Image"
 msgstr "Image séléctionnée"
 
-#: ../inc/default-options.php:632
+#: ../inc/default-options.php:668
 msgid "Disable Image"
 msgstr "Désactiver image"
 
-#: ../inc/default-options.php:645
+#: ../inc/default-options.php:682
 msgid "Light"
 msgstr "Lumière"
 
-#: ../inc/default-options.php:646
+#: ../inc/default-options.php:683
 msgid "Dark"
 msgstr "Sombre"
 
@@ -1789,6 +1802,12 @@ msgstr "Recherche"
 #: ../sidebar.php:93
 msgid "Archives"
 msgstr "Archives"
+
+#~ msgid "PollDaddy"
+#~ msgstr "PollDaddy"
+
+#~ msgid "Phone"
+#~ msgstr "Tél"
 
 #~ msgid "Shuffle"
 #~ msgstr "Shuffle"

@@ -1,7 +1,7 @@
 === Rock Star ===
 Contributors: catchthemes
 Tags: blog, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, front-page-post-form, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
-Requires at least: 5.6
+Requires at least: 5.9
 Tested up to: 6.8
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
@@ -104,10 +104,12 @@ Rock Star has social icons for various social networking sites.
 Note: By default social links will be added in Header Right Section. You can also add that in your sidebar from "Appearance -> Widgets"
 
 Available icons:
+* Bluesky
 * Codepen
 * Digg
 * Dribbble
 * Dropbox
+* Email
 * Facebook
 * Flickr
 * Foursquare
@@ -115,7 +117,8 @@ Available icons:
 * Google+
 * Instagram
 * LinkedIn
-* Email
+* Mobile
+* Phone
 * Pinterest
 * Pocket
 * PollDaddy
@@ -128,6 +131,7 @@ Available icons:
 * Twitter
 * Vimeo
 * WordPress
+* X-Twitter
 * YouTube
 
 Skype Link:
@@ -157,7 +161,12 @@ Number:
 
 For more FAQs, visit https://catchthemes.com/frequently-asked-questions/
 
-== Change Log ==
+== Changelog ==
+
+= 2.0 (Released: June 02, 2025) =
+* Added: Twitter X, TikTok, Bluesky, and Threads icons
+* Removed: Polldaddy icon
+* Replaced: Genericons library to Font Awesome
 
 = 1.8.6 (Released: April 16, 2025) =
 * Bug Fixed: Escaping author display name
@@ -320,7 +329,7 @@ For more FAQs, visit https://catchthemes.com/frequently-asked-questions/
 
 == Copyright ==
 
-Rock Star WordPress Theme, Copyright 2012-2023 Catchthemes.com
+Rock Star WordPress Theme, Copyright 2012-2025 Catchthemes.com
 Rock Star is distributed under the terms of the GNU General Public License v3
 
 == Resources ==
@@ -334,9 +343,11 @@ Rock Star is distributed under the terms of the GNU General Public License v3
 3. All other images are self shot image by (CatchThemes.com)
 
 * Font Icons
-    Genericons by Automattic, Inc.
-    Genericons is Licensed under the GPL, version 2 or later
-    http://genericons.com/
+    Font Awesome Free is free, open source, and GPL friendly.
+    Copyright (c) 2024 Fonticons, Inc. (https://fontawesome.com)
+    with Reserved Font Name: "Font Awesome".
+    Fonts: SIL OFL 1.1 License
+    https://fontawesome.com
 
 * JS Files
     HTML5-Shiv is Licensed under the MIT and GPL licenses

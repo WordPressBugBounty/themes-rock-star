@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Core functions and definitions
  *
@@ -14,7 +15,7 @@
  * @since Rock Star 0.3
  */
 
-if ( ! function_exists( 'rock_star_content_width' ) ) :
+if (! function_exists('rock_star_content_width')) :
 	/**
 	 * Set the content width in pixels, based on the theme's design and stylesheet.
 	 *
@@ -22,31 +23,33 @@ if ( ! function_exists( 'rock_star_content_width' ) ) :
 	 *
 	 * @global int $content_width
 	 */
-	function rock_star_content_width() {
-		$GLOBALS['content_width'] = apply_filters( 'rock_star_content_width', 840 );
+	function rock_star_content_width()
+	{
+		$GLOBALS['content_width'] = apply_filters('rock_star_content_width', 840);
 	}
 endif;
-add_action( 'after_setup_theme', 'rock_star_content_width', 0 );
+add_action('after_setup_theme', 'rock_star_content_width', 0);
 
 
-if ( ! function_exists( 'rock_star_template_redirect' ) ) :
+if (! function_exists('rock_star_template_redirect')) :
 	/**
 	 * Set the content width in pixels, based on the theme's design and stylesheet for different value other than the default one
 	 *
 	 * @global int $content_width
 	 */
-	function rock_star_template_redirect() {
-	    $layout = rock_star_get_theme_layout();
+	function rock_star_template_redirect()
+	{
+		$layout = rock_star_get_theme_layout();
 
-	    if ( 'no-sidebar-full-width' == $layout ) {
+		if ('no-sidebar-full-width' == $layout) {
 			$GLOBALS['content_width'] = 1200;
 		}
 	}
 endif;
-add_action( 'template_redirect', 'rock_star_template_redirect' );
+add_action('template_redirect', 'rock_star_template_redirect');
 
 
-if ( ! function_exists( 'rock_star_setup' ) ) :
+if (! function_exists('rock_star_setup')) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -54,7 +57,8 @@ if ( ! function_exists( 'rock_star_setup' ) ) :
 	 * before the init hook. The init hook is too late for some features, such as indicating
 	 * support post thumbnails.
 	 */
-	function rock_star_setup() {
+	function rock_star_setup()
+	{
 		/**
 		 * Get Theme Options Values
 		 */
@@ -66,51 +70,51 @@ if ( ! function_exists( 'rock_star_setup' ) ) :
 		 * If you're building a theme based on Rock Star, use a find and replace
 		 * to change 'rock-star' to the name of your theme in all the template files
 		 */
-		load_theme_textdomain( 'rock-star', get_template_directory() . '/languages' );
+		load_theme_textdomain('rock-star', get_template_directory() . '/languages');
 
 		/**
 		 * Add default posts and comments RSS feed links to head
 		 */
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/**
 		 * Enable support for Post Thumbnails on posts and pages
 		 *
 		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		/**
 		 * Add excerpt box in pages
 		 */
-		add_post_type_support( 'page', 'excerpt' );
+		add_post_type_support('page', 'excerpt');
 
 		// used in Header Highlight small image, Featured Content, Post Thumbnail( Except Sticky ) Ratio 4:3
-		set_post_thumbnail_size( 420, 280, true );
+		set_post_thumbnail_size(420, 280, true);
 
 		// Add Rock Star's custom image sizes
-		add_image_size( 'rock-star-slider', 1920, 1080, true ); // Used for Featured slider
+		add_image_size('rock-star-slider', 1920, 1080, true); // Used for Featured slider
 
 		//Archive Images for Archive Image Top Ratio 4:3
-		add_image_size( 'rock-star-featured', 840, 630, true);
+		add_image_size('rock-star-featured', 840, 630, true);
 
-		add_image_size( 'rock-star-landscape', 385, 257, true ); // used in Archive Image Left/Right Ratio 4:3
+		add_image_size('rock-star-landscape', 385, 257, true); // used in Archive Image Left/Right Ratio 4:3
 
 		//Small Images for Featured posts widget and widgets 90x68
-		add_image_size( 'rock-star-small', 90, 68, true );
+		add_image_size('rock-star-small', 90, 68, true);
 
 
 		/**
 		 * This theme uses wp_nav_menu() in one location.
 		 */
-		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary Menu', 'rock-star' ),
-		) );
+		register_nav_menus(array(
+			'primary' => esc_html__('Primary Menu', 'rock-star'),
+		));
 
 		/**
 		 * Enable support for Post Formats
 		 */
-		add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+		add_theme_support('post-formats', array('aside', 'image', 'video', 'quote', 'link'));
 
 		/**
 		 * Setup the WordPress core custom background feature.
@@ -127,68 +131,65 @@ if ( ! function_exists( 'rock_star_setup' ) ) :
 			'default-attachment' => 'fixed',
 		);
 
-		if ( 'dark' == $options['color_scheme'] ) {
+		if ('dark' == $options['color_scheme']) {
 			$default_bg_color = rock_star_get_default_theme_options();
 
-			$bg_defaults['default-image'] = trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/background-dark-1920x1080.jpg';
-		}
-		elseif ( 'light' == $options['color_scheme'] ) {
+			$bg_defaults['default-image'] = trailingslashit(esc_url(get_template_directory_uri())) . 'images/background-dark-1920x1080.jpg';
+		} elseif ('light' == $options['color_scheme']) {
 			$default_bg_color = rock_star_default_light_color_options();
 
-			$bg_defaults['default-image'] = trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'images/background-light-1920x1080.jpg';
-
+			$bg_defaults['default-image'] = trailingslashit(esc_url(get_template_directory_uri())) . 'images/background-light-1920x1080.jpg';
 		}
 
 		$bg_defaults['default-color'] = $default_bg_color['background_color'];
 
-		add_theme_support( 'custom-background', apply_filters( 'rock_star_custom_background_args', $bg_defaults ) );
+		add_theme_support('custom-background', apply_filters('rock_star_custom_background_args', $bg_defaults));
 
 		/**
 		 * Setup Editor style
 		 */
-		add_editor_style( 'css/editor-style.css' );
+		add_editor_style('css/editor-style.css');
 
 		/**
 		 * Setup title support for theme
 		 * Supported from WordPress version 4.1 onwards
 		 * More Info: https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/**
 		 * Setup Custom Logo Support for theme
 		 * Supported from WordPress version 4.5 onwards
 		 * More Info: https://make.wordpress.org/core/2016/03/10/custom-logo/
 		 */
-		add_theme_support( 'custom-logo' );
+		add_theme_support('custom-logo');
 
 		/**
 		 * Setup Infinite Scroll using JetPack if navigation type is set
 		 */
 		$pagination_type	= $options['pagination_type'];
 
-		if ( 'infinite-scroll-click' == $pagination_type ) {
-			add_theme_support( 'infinite-scroll', array(
+		if ('infinite-scroll-click' == $pagination_type) {
+			add_theme_support('infinite-scroll', array(
 				'type'		=> 'click',
 				'container' => 'archive-blog-wrapper',
 				'wrapper'   => false,
 				'footer'    => 'page'
-			) );
-		}
-		elseif ( 'infinite-scroll-scroll' == $pagination_type ) {
+			));
+		} elseif ('infinite-scroll-scroll' == $pagination_type) {
 			//Override infinite scroll disable scroll option
-        	update_option('infinite_scroll', true);
+			update_option('infinite_scroll', true);
 
-			add_theme_support( 'infinite-scroll', array(
+			add_theme_support('infinite-scroll', array(
 				'type'      => 'scroll',
 				'container' => 'archive-blog-wrapper',
 				'wrapper'   => false,
 				'footer'    => 'page'
-			) );
+			));
 		}
 	}
 endif; // rock_star_setup
-add_action( 'after_setup_theme', 'rock_star_setup' );
+add_action('after_setup_theme', 'rock_star_setup');
 
 
 /**
@@ -199,52 +200,54 @@ add_action( 'after_setup_theme', 'rock_star_setup' );
  *
  * @since Rock Star 0.3
  */
-function rock_star_scripts() {
+function rock_star_scripts()
+{
 	$options = rock_star_get_theme_options();
 
-	//For genericons
-	wp_register_style( 'genericons', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'css/genericons/genericons.css', false, '3.4.1' );
-	$deps[] = 'genericons';
+	//For fontawesome
+	wp_enqueue_style('font-awesome', trailingslashit(esc_url(get_template_directory_uri())) . 'css/font-awesome/css/all.min.css', array(), '6.7.2', 'all');
 
-	wp_enqueue_style( 'rock-star-style', get_stylesheet_uri(), $deps, ROCK_STAR_THEME_VERSION );
+	$deps[] = 'font-awesome';
 
-	wp_enqueue_style( 'rock-star-fonts', rock_star_fonts_url(), array(), ROCK_STAR_THEME_VERSION );
+	wp_enqueue_style('rock-star-style', get_stylesheet_uri(), $deps, ROCK_STAR_THEME_VERSION);
+
+	wp_enqueue_style('rock-star-fonts', rock_star_fonts_url(), array(), ROCK_STAR_THEME_VERSION);
 
 	/**
 	 * Enqueue the styles for the current color scheme for catchbase.
 	 */
-	if ( 'dark' != $options['color_scheme'] ) {
-		wp_enqueue_style( 'rock-star-'. $options['color_scheme'], trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'css/colors/'. $options['color_scheme'] .'.css', array(), null );
+	if ('dark' != $options['color_scheme']) {
+		wp_enqueue_style('rock-star-' . $options['color_scheme'], trailingslashit(esc_url(get_template_directory_uri())) . 'css/colors/' . $options['color_scheme'] . '.css', array(), null);
 	}
 
-	wp_enqueue_script( 'rock-star-navigation', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/navigation.min.js', array(), '20120206', true );
+	wp_enqueue_script('rock-star-navigation', trailingslashit(esc_url(get_template_directory_uri())) . 'js/navigation.min.js', array(), '20120206', true);
 
 	// Load the html5 shiv.
-	wp_enqueue_script( 'rock-star--html5', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/html5.min.js', array(), '3.7.3' );
-	wp_script_add_data( 'rock-star-html5', 'conditional', 'lt IE 9' );
+	wp_enqueue_script('rock-star--html5', trailingslashit(esc_url(get_template_directory_uri())) . 'js/html5.min.js', array(), '3.7.3');
+	wp_script_add_data('rock-star-html5', 'conditional', 'lt IE 9');
 
-	wp_enqueue_script( 'rock-star-skip-link-focus-fix', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/skip-link-focus-fix.min.js', array(), '20130115', true );
+	wp_enqueue_script('rock-star-skip-link-focus-fix', trailingslashit(esc_url(get_template_directory_uri())) . 'js/skip-link-focus-fix.min.js', array(), '20130115', true);
 
 	/**
 	 * Adds JavaScript to pages with the comment form to support
 	 * sites with threaded comments (when in use).
 	 */
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 
 	/**
 	 * Loads up fit vids
 	 */
-	if ( $options['enable_fitvid'] ) {
-		wp_enqueue_script( 'jquery-fitvids', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/fitvids.min.js', array( 'jquery' ), '1.1', true );
+	if ($options['enable_fitvid']) {
+		wp_enqueue_script('jquery-fitvids', trailingslashit(esc_url(get_template_directory_uri())) . 'js/fitvids.min.js', array('jquery'), '1.1', true);
 	}
 
 	/**
 	 * Loads up Cycle JS
 	 */
-	if ( $options['featured_slider_option'] != 'disabled' || $options['news_ticker_option'] != 'disabled' ) {
-		wp_register_script( 'jquery-cycle2', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/jquery.cycle/jquery.cycle2.min.js', array( 'jquery' ), '2.1.5', true );
+	if ($options['featured_slider_option'] != 'disabled' || $options['news_ticker_option'] != 'disabled') {
+		wp_register_script('jquery-cycle2', trailingslashit(esc_url(get_template_directory_uri())) . 'js/jquery.cycle/jquery.cycle2.min.js', array('jquery'), '2.1.5', true);
 
 		$transition_effects = array(
 			$options['featured_slide_transition_effect'],
@@ -255,66 +258,67 @@ function rock_star_scripts() {
 		 * Condition checks for additional slider transition plugins
 		 */
 		// Scroll Vertical transition plugin addition
-		if ( in_array( 'scrollVert', $transition_effects ) ){
-			wp_enqueue_script( 'jquery-cycle2-scrollVert', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/jquery.cycle/jquery.cycle2.scrollVert.min.js', array( 'jquery-cycle2' ), '20140128', true );
+		if (in_array('scrollVert', $transition_effects)) {
+			wp_enqueue_script('jquery-cycle2-scrollVert', trailingslashit(esc_url(get_template_directory_uri())) . 'js/jquery.cycle/jquery.cycle2.scrollVert.min.js', array('jquery-cycle2'), '20140128', true);
 		}
 
 		// Flip transition plugin addition
-		if ( in_array( 'flipHorz', $transition_effects ) || in_array( 'flipVert', $transition_effects ) ){
-			wp_enqueue_script( 'jquery-cycle2-flip', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/jquery.cycle/jquery.cycle2.flip.min.js', array( 'jquery-cycle2' ), '20140128', true );
+		if (in_array('flipHorz', $transition_effects) || in_array('flipVert', $transition_effects)) {
+			wp_enqueue_script('jquery-cycle2-flip', trailingslashit(esc_url(get_template_directory_uri())) . 'js/jquery.cycle/jquery.cycle2.flip.min.js', array('jquery-cycle2'), '20140128', true);
 		}
 
 		// Shuffle transition plugin addition
-		if ( in_array( 'tileSlide', $transition_effects ) || in_array( 'tileBlind', $transition_effects ) ){
-			wp_enqueue_script( 'jquery-cycle2-tile', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/jquery.cycle/jquery.cycle2.tile.min.js', array( 'jquery-cycle2' ), '20140128', true );
+		if (in_array('tileSlide', $transition_effects) || in_array('tileBlind', $transition_effects)) {
+			wp_enqueue_script('jquery-cycle2-tile', trailingslashit(esc_url(get_template_directory_uri())) . 'js/jquery.cycle/jquery.cycle2.tile.min.js', array('jquery-cycle2'), '20140128', true);
 		}
 
 		//Load jquery cycle alone if no plugin is required
-		if ( !( in_array( 'scrollVert', $transition_effects ) || in_array( 'flipHorz', $transition_effects ) || in_array( 'flipVert', $transition_effects ) || in_array( 'tileSlide', $transition_effects ) || in_array( 'tileBlind', $transition_effects ) ) ){
-			wp_enqueue_script( 'jquery-cycle2' );
+		if (!(in_array('scrollVert', $transition_effects) || in_array('flipHorz', $transition_effects) || in_array('flipVert', $transition_effects) || in_array('tileSlide', $transition_effects) || in_array('tileBlind', $transition_effects))) {
+			wp_enqueue_script('jquery-cycle2');
 		}
 	}
 
 	/**
 	 * Loads up Scroll Up script
 	 */
-	if ( ! $options['disable_scrollup'] ) {
-		wp_enqueue_script( 'rock-star-scrollup', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/scrollup.min.js', array( 'jquery' ), '20072014', true  );
+	if (! $options['disable_scrollup']) {
+		wp_enqueue_script('rock-star-scrollup', trailingslashit(esc_url(get_template_directory_uri())) . 'js/scrollup.min.js', array('jquery'), '20072014', true);
 	}
 
 	/**
 	 * Enqueue custom script for Rock Star.
 	 */
-	wp_enqueue_script( 'rock-star-custom-scripts', trailingslashit( esc_url ( get_template_directory_uri() ) ) . 'js/custom-scripts.min.js', array( 'jquery' ), null );
+	wp_enqueue_script('rock-star-custom-scripts', trailingslashit(esc_url(get_template_directory_uri())) . 'js/custom-scripts.min.js', array('jquery'), null);
 
-	wp_localize_script( 'rock-star-custom-scripts', 'screenReaderText', array(
-		'expand'   => __( 'expand child menu', 'rock-star' ),
-		'collapse' => __( 'collapse child menu', 'rock-star' ),
-	) );
+	wp_localize_script('rock-star-custom-scripts', 'screenReaderText', array(
+		'expand'   => __('expand child menu', 'rock-star'),
+		'collapse' => __('collapse child menu', 'rock-star'),
+	));
 }
-add_action( 'wp_enqueue_scripts', 'rock_star_scripts' );
+add_action('wp_enqueue_scripts', 'rock_star_scripts');
 
 
 /**
  * Register Google fonts.
  *
  */
-function rock_star_fonts_url() {
+function rock_star_fonts_url()
+{
 	$fonts_url = '';
 
 	/* Translators: If there are characters in your language that are not
 	* supported by Montserrat, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$courgette = _x( 'on', 'Courgette font: on or off', 'rock-star' );
+	$courgette = _x('on', 'Courgette font: on or off', 'rock-star');
 
-	if ( 'off' !== $courgette ) {
+	if ('off' !== $courgette) {
 		$fonts_url = 'https://fonts.googleapis.com/css?family=Courgette';
 	}
 	// Load google font locally.
-	require_once get_theme_file_path( 'inc/wptt-webfont-loader.php' );
-			
-	return esc_url_raw( wptt_get_webfont_url( $fonts_url ) );
+	require_once get_theme_file_path('inc/wptt-webfont-loader.php');
+
+	return esc_url_raw(wptt_get_webfont_url($fonts_url));
 }
 
 
@@ -330,77 +334,77 @@ function rock_star_fonts_url() {
 /**
  * Default Options.
  */
-require trailingslashit( get_template_directory() ) . 'inc/default-options.php';
+require trailingslashit(get_template_directory()) . 'inc/default-options.php';
 
 /**
  * Custom Header.
  */
-require trailingslashit( get_template_directory() ) . 'inc/custom-header.php';
+require trailingslashit(get_template_directory()) . 'inc/custom-header.php';
 
 
 /**
  * Structure for Rock Star
  */
-require trailingslashit( get_template_directory() ) . 'inc/structure.php';
+require trailingslashit(get_template_directory()) . 'inc/structure.php';
 
 
 /**
  * Customizer additions.
  */
-require trailingslashit( get_template_directory() ) . 'inc/customizer-includes/customizer.php';
+require trailingslashit(get_template_directory()) . 'inc/customizer-includes/customizer.php';
 
 
 /**
  * Custom Menus
  */
-require trailingslashit( get_template_directory() ) . 'inc/menus.php';
+require trailingslashit(get_template_directory()) . 'inc/menus.php';
 
 
 /**
  * Load Slider file.
  */
-require trailingslashit( get_template_directory() ) . 'inc/featured-slider.php';
+require trailingslashit(get_template_directory()) . 'inc/featured-slider.php';
 
 
 /**
  * Load Featured Content.
  */
-require trailingslashit( get_template_directory() ) . 'inc/featured-content.php';
+require trailingslashit(get_template_directory()) . 'inc/featured-content.php';
 
 
 /**
  * Load News Ticker
  */
-require trailingslashit( get_template_directory() ) . 'inc/news-ticker.php';
+require trailingslashit(get_template_directory()) . 'inc/news-ticker.php';
 
 
 /**
  * Load Breadcrumb file.
  */
-require trailingslashit( get_template_directory() ) . 'inc/breadcrumb.php';
+require trailingslashit(get_template_directory()) . 'inc/breadcrumb.php';
 
 
 /**
  * Load Widgets and Sidebars
  */
-require trailingslashit( get_template_directory() ) . 'inc/widgets/widgets.php';
+require trailingslashit(get_template_directory()) . 'inc/widgets/widgets.php';
 
 
 /**
  * Load Social Icons
  */
-require trailingslashit( get_template_directory() ) . 'inc/social-icons.php';
+require trailingslashit(get_template_directory()) . 'inc/social-icons.php';
 
 
 /**
  * Load Metaboxes
  */
-require trailingslashit( get_template_directory() ) . 'inc/metabox.php';
+require trailingslashit(get_template_directory()) . 'inc/metabox.php';
 
 /**
  * Load JSON_LD Breadcrumb file.
  */
-require trailingslashit( get_template_directory() ) . 'inc/json-ld-schema.php';
+require trailingslashit(get_template_directory()) . 'inc/json-ld-schema.php';
 
 
 /**
@@ -409,10 +413,11 @@ require trailingslashit( get_template_directory() ) . 'inc/json-ld-schema.php';
  *
  * @since Rock Star 0.3
  */
-function rock_star_get_theme_options() {
+function rock_star_get_theme_options()
+{
 	$default_options = rock_star_get_default_theme_options();
 
-	return array_merge( $default_options , get_theme_mod( 'rock_star_theme_options', $default_options ) ) ;
+	return array_merge($default_options, get_theme_mod('rock_star_theme_options', $default_options));
 }
 
 
@@ -425,29 +430,30 @@ function rock_star_get_theme_options() {
  *
  * @since Rock Star 0.3
  */
-function rock_star_flush_transients(){
-	delete_transient( 'rock_star_featured_content' );
+function rock_star_flush_transients()
+{
+	delete_transient('rock_star_featured_content');
 
-	delete_transient( 'rock_star_news_ticker' );
+	delete_transient('rock_star_news_ticker');
 
-	delete_transient( 'rock_star_featured_slider' );
+	delete_transient('rock_star_featured_slider');
 
-	delete_transient( 'rock_star_custom_css' );
+	delete_transient('rock_star_custom_css');
 
-	delete_transient( 'rock_star_footer_content' );
+	delete_transient('rock_star_footer_content');
 
-	delete_transient( 'rock_star_featured_image' );
+	delete_transient('rock_star_featured_image');
 
-	delete_transient( 'rock_star_social_icons' );
+	delete_transient('rock_star_social_icons');
 
-	delete_transient( 'all_the_cool_cats' );
+	delete_transient('all_the_cool_cats');
 
 	//Add Rock Star default themes if there is no values
-	if ( !get_theme_mod('rock_star_theme_options') ) {
-		set_theme_mod( 'rock_star_theme_options', rock_star_get_default_theme_options() );
+	if (!get_theme_mod('rock_star_theme_options')) {
+		set_theme_mod('rock_star_theme_options', rock_star_get_default_theme_options());
 	}
 }
-add_action( 'customize_save', 'rock_star_flush_transients' );
+add_action('customize_save', 'rock_star_flush_transients');
 
 /**
  * Flush out category transients
@@ -458,10 +464,11 @@ add_action( 'customize_save', 'rock_star_flush_transients' );
  *
  * @since Rock Star 0.3
  */
-function rock_star_flush_category_transients(){
-	delete_transient( 'all_the_cool_cats' );
+function rock_star_flush_category_transients()
+{
+	delete_transient('all_the_cool_cats');
 }
-add_action( 'edit_category', 'rock_star_flush_category_transients' );
+add_action('edit_category', 'rock_star_flush_category_transients');
 
 
 /**
@@ -473,21 +480,22 @@ add_action( 'edit_category', 'rock_star_flush_category_transients' );
  *
  * @since Rock Star 0.3
  */
-function rock_star_flush_post_transients(){
-	delete_transient( 'rock_star_featured_content' );
+function rock_star_flush_post_transients()
+{
+	delete_transient('rock_star_featured_content');
 
-	delete_transient( 'rock_star_news_ticker' );
+	delete_transient('rock_star_news_ticker');
 
-	delete_transient( 'rock_star_featured_slider' );
+	delete_transient('rock_star_featured_slider');
 
-	delete_transient( 'rock_star_featured_image' );
+	delete_transient('rock_star_featured_image');
 
-	delete_transient( 'all_the_cool_cats' );
+	delete_transient('all_the_cool_cats');
 }
-add_action( 'save_post', 'rock_star_flush_post_transients' );
+add_action('save_post', 'rock_star_flush_post_transients');
 
 
-if ( ! function_exists( 'rock_star_custom_css' ) ) :
+if (! function_exists('rock_star_custom_css')) :
 	/**
 	 * Enqueue Custon CSS
 	 *
@@ -497,76 +505,74 @@ if ( ! function_exists( 'rock_star_custom_css' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_custom_css() {
+	function rock_star_custom_css()
+	{
 		//rock_star_flush_transients();
 		$options  = rock_star_get_theme_options();
 		$defaults = rock_star_get_default_theme_options();
 
-		if ( ! $custom_css = get_transient( 'rock_star_custom_css' ) ) {
-			$custom_css ='';
+		if (! $custom_css = get_transient('rock_star_custom_css')) {
+			$custom_css = '';
 
 			$text_color = get_header_textcolor();
 
-			if ( 'blank' == $text_color ){
-				$custom_css	.=  ".site-title a, .site-description { position: absolute !important; clip: rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px); }". "\n";
-			}
-			elseif (  get_theme_support( 'custom-header', 'default-text-color' ) !== $text_color ) {
-				$custom_css	.=  ".site-title a, .site-description { color: #".  $text_color ."; }". "\n";
+			if ('blank' == $text_color) {
+				$custom_css	.=  ".site-title a, .site-description { position: absolute !important; clip: rect(1px 1px 1px 1px); clip: rect(1px, 1px, 1px, 1px); }" . "\n";
+			} elseif (get_theme_support('custom-header', 'default-text-color') !== $text_color) {
+				$custom_css	.=  ".site-title a, .site-description { color: #" .  $text_color . "; }" . "\n";
 			}
 
 			// Featured Content Background Image Options
-			if ( '' == $options['featured_content_background_image'] ) {
+			if ('' == $options['featured_content_background_image']) {
 				//Remove Background Image
 				$custom_css .= "#featured-content { background-image: none; }";
-			}
-			elseif ( $defaults['featured_content_background_image'] != $options['featured_content_background_image'] || $defaults['featured_content_background_display_position'] != $options['featured_content_background_display_position'] || $defaults['featured_content_background_repeat'] != $options['featured_content_background_repeat'] || $defaults['featured_content_background_attachment'] != $options['featured_content_background_attachment'] ) {
+			} elseif ($defaults['featured_content_background_image'] != $options['featured_content_background_image'] || $defaults['featured_content_background_display_position'] != $options['featured_content_background_display_position'] || $defaults['featured_content_background_repeat'] != $options['featured_content_background_repeat'] || $defaults['featured_content_background_attachment'] != $options['featured_content_background_attachment']) {
 
-				$custom_css .= "#featured-content {". "\n";
-				if ( $defaults['featured_content_background_image'] != $options['featured_content_background_image'] ) {
-					$custom_css	.=  "background-image: url(\"". esc_url( $options['featured_content_background_image'] ) ."\");". "\n";
+				$custom_css .= "#featured-content {" . "\n";
+				if ($defaults['featured_content_background_image'] != $options['featured_content_background_image']) {
+					$custom_css	.=  "background-image: url(\"" . esc_url($options['featured_content_background_image']) . "\");" . "\n";
 				}
 
-				if ( $defaults['featured_content_background_display_position'] != $options['featured_content_background_display_position'] ) {
-					$custom_css	.=  "background-position: center ". $options['featured_content_background_display_position'] .";". "\n";
+				if ($defaults['featured_content_background_display_position'] != $options['featured_content_background_display_position']) {
+					$custom_css	.=  "background-position: center " . $options['featured_content_background_display_position'] . ";" . "\n";
 				}
 
-				if ( $defaults['featured_content_background_repeat'] != $options['featured_content_background_repeat'] ) {
-					$custom_css	.=  "background-repeat: ". $options['featured_content_background_repeat'] . ";\n";
+				if ($defaults['featured_content_background_repeat'] != $options['featured_content_background_repeat']) {
+					$custom_css	.=  "background-repeat: " . $options['featured_content_background_repeat'] . ";\n";
 					$custom_css	.=  "background-size: inherit;\n";
 				}
 
-				if ( $defaults['featured_content_background_attachment'] != $options['featured_content_background_attachment'] ) {
-					$custom_css	.=  "background-attachment: ". $options['featured_content_background_attachment'] ."\n";
+				if ($defaults['featured_content_background_attachment'] != $options['featured_content_background_attachment']) {
+					$custom_css	.=  "background-attachment: " . $options['featured_content_background_attachment'] . "\n";
 				}
 				$custom_css .= "}";
 			}
 
 			//Custom CSS Option
-			if ( !empty( $options['custom_css'] ) ) {
+			if (!empty($options['custom_css'])) {
 
-				if ( '' != $custom_css ){
+				if ('' != $custom_css) {
 					// Just add a new line.
 					$custom_css	.=  $custom_css . "\n";
 				}
-				$custom_css	.=  "/* Custom CSS from Custom CSS box */" . "\n" . $options[ 'custom_css'] . "\n";
+				$custom_css	.=  "/* Custom CSS from Custom CSS box */" . "\n" . $options['custom_css'] . "\n";
 			}
 
-			if ( '' != $custom_css ){
+			if ('' != $custom_css) {
 				echo '<!-- refreshing cache -->' . "\n";
 
-				$custom_css = '<!-- '.get_bloginfo('name').' inline CSS Styles -->' . "\n" . '<style type="text/css" media="screen">' . "\n" . $custom_css;
+				$custom_css = '<!-- ' . get_bloginfo('name') . ' inline CSS Styles -->' . "\n" . '<style type="text/css" media="screen">' . "\n" . $custom_css;
 
 				$custom_css .= '</style>' . "\n";
-
 			}
 
-			set_transient( 'rock_star_custom_css', htmlspecialchars_decode( $custom_css ), 86940 );
+			set_transient('rock_star_custom_css', htmlspecialchars_decode($custom_css), 86940);
 		}
 
 		echo $custom_css;
 	}
 endif; //rock_star_custom_css
-add_action( 'wp_head', 'rock_star_custom_css', 101  );
+add_action('wp_head', 'rock_star_custom_css', 101);
 
 
 /**
@@ -576,39 +582,41 @@ add_action( 'wp_head', 'rock_star_custom_css', 101  );
  *
  * @since Rock Star 0.3
  */
-function rock_star_alter_home( $query ){
-	if ( $query->is_main_query() && $query->is_home() ) {
+function rock_star_alter_home($query)
+{
+	if ($query->is_main_query() && $query->is_home()) {
 		$options 	= rock_star_get_theme_options();
-	    $cats 		= $options['front_page_category'];
+		$cats 		= $options['front_page_category'];
 
-	    if ( is_array( $cats ) && !in_array( '0', $cats ) ) {
+		if (is_array($cats) && !in_array('0', $cats)) {
 			$query->query_vars['category__in'] =  $cats;
 		}
 	}
 }
-add_action( 'pre_get_posts','rock_star_alter_home' );
+add_action('pre_get_posts', 'rock_star_alter_home');
 
 
-if ( ! function_exists( 'rock_star_content_nav' ) ) :
+if (! function_exists('rock_star_content_nav')) :
 	/**
 	 * Display navigation to next/previous pages when applicable
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_content_nav( $nav_id ) {
+	function rock_star_content_nav($nav_id)
+	{
 		global $wp_query, $post;
 
 		// Don't print empty markup on single pages if there's nowhere to navigate.
-		if ( is_single() ) {
-			$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
-			$next = get_adjacent_post( false, '', false );
+		if (is_single()) {
+			$previous = (is_attachment()) ? get_post($post->post_parent) : get_adjacent_post(false, '', true);
+			$next = get_adjacent_post(false, '', false);
 
-			if ( ! $next && ! $previous )
+			if (! $next && ! $previous)
 				return;
 		}
 
 		// Don't print empty markup in archives if there's only one page.
-		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
+		if ($wp_query->max_num_pages < 2 && (is_home() || is_archive() || is_search())) {
 			return;
 		}
 
@@ -616,49 +624,47 @@ if ( ! function_exists( 'rock_star_content_nav' ) ) :
 
 		$pagination_type	= $options['pagination_type'];
 
-		$nav_class = ( is_single() ) ? 'site-navigation post-navigation' : 'site-navigation paging-navigation';
+		$nav_class = (is_single()) ? 'site-navigation post-navigation' : 'site-navigation paging-navigation';
 
 		/**
 		 * Check if navigation type is Jetpack Infinite Scroll and if it is enabled, else goto default pagination
 		 * if it's active then disable pagination
 		 */
-		if ( ( 'infinite-scroll-click' == $pagination_type || 'infinite-scroll-scroll' == $pagination_type ) && class_exists( 'Jetpack' ) && Jetpack::is_module_active( 'infinite-scroll' ) ) {
+		if (('infinite-scroll-click' == $pagination_type || 'infinite-scroll-scroll' == $pagination_type) && class_exists('Jetpack') && Jetpack::is_module_active('infinite-scroll')) {
 			return false;
 		}
 
-		?>
-	        <nav class="navigation post-navigation" role="navigation" id="<?php echo esc_attr( $nav_id ); ?>">
-	        	<div class="nav-links">
-		        	<h3 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'rock-star' ); ?></h3>
-					<?php
-					/**
-					 * Check if navigation type is numeric and if Wp-PageNavi Plugin is enabled
-					 */
-					if ( 'numeric' == $pagination_type ) {
-						if ( function_exists( 'wp_pagenavi' ) ) {
-							wp_pagenavi();
-						}
-						else {
-							the_posts_pagination( array(
-								'prev_text'          => esc_html__( 'Previous page', 'rock-star' ),
-								'next_text'          => esc_html__( 'Next page', 'rock-star' ),
-								'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__( 'Page', 'rock-star' ) . ' </span>',
-							) );
-						}
-	            	}
-		            else { ?>
-		                <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'rock-star' ) ); ?></div>
-		                <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'rock-star' ) ); ?></div>
-		            <?php
-		            } ?>
-		        </div>
-	        </nav><!-- #nav -->
+?>
+		<nav class="navigation post-navigation" role="navigation" id="<?php echo esc_attr($nav_id); ?>">
+			<div class="nav-links">
+				<h3 class="screen-reader-text"><?php esc_html_e('Post navigation', 'rock-star'); ?></h3>
+				<?php
+				/**
+				 * Check if navigation type is numeric and if Wp-PageNavi Plugin is enabled
+				 */
+				if ('numeric' == $pagination_type) {
+					if (function_exists('wp_pagenavi')) {
+						wp_pagenavi();
+					} else {
+						the_posts_pagination(array(
+							'prev_text'          => esc_html__('Previous page', 'rock-star'),
+							'next_text'          => esc_html__('Next page', 'rock-star'),
+							'before_page_number' => '<span class="meta-nav screen-reader-text">' . esc_html__('Page', 'rock-star') . ' </span>',
+						));
+					}
+				} else { ?>
+					<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older posts', 'rock-star')); ?></div>
+					<div class="nav-next"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&rarr;</span>', 'rock-star')); ?></div>
+				<?php
+				} ?>
+			</div>
+		</nav><!-- #nav -->
 		<?php
 	}
 endif; // rock_star_content_nav
 
 
-if ( ! function_exists( 'rock_star_comment' ) ) :
+if (! function_exists('rock_star_comment')) :
 	/**
 	 * Template for comments and pingbacks.
 	 *
@@ -666,68 +672,70 @@ if ( ! function_exists( 'rock_star_comment' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_comment( $comment, $args, $depth ) {
-		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
+	function rock_star_comment($comment, $args, $depth)
+	{
+		if ('pingback' == $comment->comment_type || 'trackback' == $comment->comment_type) : ?>
 
-		<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-			<div class="comment-body">
-				<?php esc_html_e( 'Pingback:', 'rock-star' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( esc_html__( 'Edit', 'rock-star' ), '<span class="edit-link">', '</span>' ); ?>
-			</div>
+			<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+				<div class="comment-body">
+					<?php esc_html_e('Pingback:', 'rock-star'); ?> <?php comment_author_link(); ?> <?php edit_comment_link(esc_html__('Edit', 'rock-star'), '<span class="edit-link">', '</span>'); ?>
+				</div>
 
-		<?php else : ?>
+			<?php else : ?>
 
-		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
-			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-				<footer class="comment-meta">
-					<div class="comment-author vcard">
-						<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
-						<?php printf( __( '%s <span class="says">says:</span>', 'rock-star' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
-					</div><!-- .comment-author -->
+			<li id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?>>
+				<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+					<footer class="comment-meta">
+						<div class="comment-author vcard">
+							<?php if (0 != $args['avatar_size']) echo get_avatar($comment, $args['avatar_size']); ?>
+							<?php printf(__('%s <span class="says">says:</span>', 'rock-star'), sprintf('<cite class="fn">%s</cite>', get_comment_author_link())); ?>
+						</div><!-- .comment-author -->
 
-					<div class="comment-metadata">
-						<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-							<time datetime="<?php comment_time( 'c' ); ?>">
-								<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'rock-star' ), get_comment_date(), get_comment_time() ); ?>
-							</time>
-						</a>
-						<?php edit_comment_link( esc_html__( 'Edit', 'rock-star' ), '<span class="edit-link">', '</span>' ); ?>
-					</div><!-- .comment-metadata -->
+						<div class="comment-metadata">
+							<a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>">
+								<time datetime="<?php comment_time('c'); ?>">
+									<?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'rock-star'), get_comment_date(), get_comment_time()); ?>
+								</time>
+							</a>
+							<?php edit_comment_link(esc_html__('Edit', 'rock-star'), '<span class="edit-link">', '</span>'); ?>
+						</div><!-- .comment-metadata -->
 
-					<?php if ( '0' == $comment->comment_approved ) : ?>
-					<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'rock-star' ); ?></p>
-					<?php endif; ?>
-				</footer><!-- .comment-meta -->
+						<?php if ('0' == $comment->comment_approved) : ?>
+							<p class="comment-awaiting-moderation"><?php esc_html_e('Your comment is awaiting moderation.', 'rock-star'); ?></p>
+						<?php endif; ?>
+					</footer><!-- .comment-meta -->
 
-				<div class="comment-content">
-					<?php comment_text(); ?>
-				</div><!-- .comment-content -->
+					<div class="comment-content">
+						<?php comment_text(); ?>
+					</div><!-- .comment-content -->
 
-				<?php
-					comment_reply_link( wp_parse_args( $args, array(
+					<?php
+					comment_reply_link(wp_parse_args($args, array(
 						'add_below' => 'div-comment',
 						'depth'     => $depth,
 						'max_depth' => $args['max_depth'],
 						'before'    => '<div class="reply">',
 						'after'     => '</div>',
-					) ) );
-				?>
-			</article><!-- .comment-body -->
+					)));
+					?>
+				</article><!-- .comment-body -->
 
-		<?php
+			<?php
 		endif;
 	}
 endif; // rock_star_comment()
 
 
-if ( ! function_exists( 'rock_star_the_attached_image' ) ) :
+if (! function_exists('rock_star_the_attached_image')) :
 	/**
 	 * Prints the attached image with a link to the next attached image.
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_the_attached_image() {
+	function rock_star_the_attached_image()
+	{
 		$post                = get_post();
-		$attachment_size     = apply_filters( 'rock_star_attachment_size', array( 1200, 1200 ) );
+		$attachment_size     = apply_filters('rock_star_attachment_size', array(1200, 1200));
 		$next_attachment_url = wp_get_attachment_url();
 
 		/**
@@ -736,7 +744,7 @@ if ( ! function_exists( 'rock_star_the_attached_image' ) ) :
 		 * we're looking at the last image in a gallery), or, in a gallery of one,
 		 * just the link to that image file.
 		 */
-		$attachment_ids = get_posts( array(
+		$attachment_ids = get_posts(array(
 			'post_parent'    => $post->post_parent,
 			'fields'         => 'ids',
 			'numberposts'    => 1,
@@ -745,106 +753,114 @@ if ( ! function_exists( 'rock_star_the_attached_image' ) ) :
 			'post_mime_type' => 'image',
 			'order'          => 'ASC',
 			'orderby'        => 'menu_order ID'
-		) );
+		));
 
 		// If there is more than 1 attachment in a gallery...
-		if ( count( $attachment_ids ) > 1 ) {
-			foreach ( $attachment_ids as $attachment_id ) {
-				if ( $attachment_id == $post->ID ) {
-					$next_id = current( $attachment_ids );
+		if (count($attachment_ids) > 1) {
+			foreach ($attachment_ids as $attachment_id) {
+				if ($attachment_id == $post->ID) {
+					$next_id = current($attachment_ids);
 					break;
 				}
 			}
 
 			// get the URL of the next image attachment...
-			if ( $next_id )
-				$next_attachment_url = get_attachment_link( $next_id );
+			if ($next_id)
+				$next_attachment_url = get_attachment_link($next_id);
 
 			// or get the URL of the first image attachment.
 			else
-				$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
+				$next_attachment_url = get_attachment_link(array_shift($attachment_ids));
 		}
 
-		printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
-			esc_url( $next_attachment_url ),
-			the_title_attribute( 'echo=0' ),
-			wp_get_attachment_image( $post->ID, $attachment_size )
+		printf(
+			'<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
+			esc_url($next_attachment_url),
+			the_title_attribute('echo=0'),
+			wp_get_attachment_image($post->ID, $attachment_size)
 		);
 	}
 endif; //rock_star_the_attached_image
 
 
-if ( ! function_exists( 'rock_star_entry_meta' ) ) :
+if (! function_exists('rock_star_entry_meta')) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_entry_meta() {
+	function rock_star_entry_meta()
+	{
 		echo '<p class="entry-meta">';
 
 		$time_string = '<time datetime="%1$s" class="entry-date published updated">%2$s</time>';
 
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		if (get_the_time('U') !== get_the_modified_time('U')) {
 			$time_string = '<time datetime="%1$s" class="entry-date published">%2$s</time><time datetime="%1$s" class="updated">%2$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
+		$time_string = sprintf(
+			$time_string,
+			esc_attr(get_the_date('c')),
+			esc_html(get_the_date()),
+			esc_attr(get_the_modified_date('c')),
+			esc_html(get_the_modified_date())
 		);
 
-		printf( '<span class="posted-on">%1$s<a href="%2$s" rel="bookmark">%3$s</a></span>',
-			sprintf( _x( '<span class="screen-reader-text">Posted on</span>', 'Used before publish date.', 'rock-star' ) ),
-			esc_url( get_permalink() ),
+		printf(
+			'<span class="posted-on">%1$s<a href="%2$s" rel="bookmark">%3$s</a></span>',
+			sprintf(_x('<span class="screen-reader-text">Posted on</span>', 'Used before publish date.', 'rock-star')),
+			esc_url(get_permalink()),
 			$time_string
 		);
 
-		if ( is_singular() || is_multi_author() ) {
-			printf( '<span class="byline"><span class="author vcard">%1$s<a class="url fn n" href="%2$s">%3$s</a></span></span>',
-				sprintf( _x( '<span class="screen-reader-text">Author</span>', 'Used before post author name.', 'rock-star' ) ),
-				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-				esc_html( get_the_author() )
+		if (is_singular() || is_multi_author()) {
+			printf(
+				'<span class="byline"><span class="author vcard">%1$s<a class="url fn n" href="%2$s">%3$s</a></span></span>',
+				sprintf(_x('<span class="screen-reader-text">Author</span>', 'Used before post author name.', 'rock-star')),
+				esc_url(get_author_posts_url(get_the_author_meta('ID'))),
+				esc_html(get_the_author())
 			);
 		}
 
-		if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) {
+		if (! post_password_required() && (comments_open() || '0' != get_comments_number())) {
 			echo '<span class="comments-link">';
-			comments_popup_link( esc_html__( 'Leave a comment', 'rock-star' ), esc_html__( '1 Comment', 'rock-star' ), esc_html__( '% Comments', 'rock-star' ) );
+			comments_popup_link(esc_html__('Leave a comment', 'rock-star'), esc_html__('1 Comment', 'rock-star'), esc_html__('% Comments', 'rock-star'));
 			echo '</span>';
 		}
 
-		edit_post_link( esc_html__( 'Edit', 'rock-star' ), '<span class="edit-link">', '</span>' );
+		edit_post_link(esc_html__('Edit', 'rock-star'), '<span class="edit-link">', '</span>');
 
 		echo '</p><!-- .entry-meta -->';
 	}
 endif; //rock_star_entry_meta
 
 
-if ( ! function_exists( 'rock_star_tag_category' ) ) :
+if (! function_exists('rock_star_tag_category')) :
 	/**
 	 * Prints HTML with meta information for the categories, tags.
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_tag_category() {
+	function rock_star_tag_category()
+	{
 		echo '<p class="entry-meta">';
 
-		if ( 'post' == get_post_type() ) {
-			$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'rock-star' ) );
-			if ( $categories_list && rock_star_categorized_blog() ) {
-				printf( '<span class="cat-links">%1$s%2$s</span>',
-					sprintf( _x( '<span class="screen-reader-text">Categories</span>', 'Used before category names.', 'rock-star' ) ),
+		if ('post' == get_post_type()) {
+			$categories_list = get_the_category_list(_x(', ', 'Used between list items, there is a space after the comma.', 'rock-star'));
+			if ($categories_list && rock_star_categorized_blog()) {
+				printf(
+					'<span class="cat-links">%1$s%2$s</span>',
+					sprintf(_x('<span class="screen-reader-text">Categories</span>', 'Used before category names.', 'rock-star')),
 					$categories_list
 				);
 			}
 
-			$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'rock-star' ) );
-			if ( $tags_list ) {
-				printf( '<span class="tags-links">%1$s%2$s</span>',
-					sprintf( _x( '<span class="screen-reader-text">Tags</span>', 'Used before tag names.', 'rock-star' ) ),
+			$tags_list = get_the_tag_list('', _x(', ', 'Used between list items, there is a space after the comma.', 'rock-star'));
+			if ($tags_list) {
+				printf(
+					'<span class="tags-links">%1$s%2$s</span>',
+					sprintf(_x('<span class="screen-reader-text">Tags</span>', 'Used before tag names.', 'rock-star')),
 					$tags_list
 				);
 			}
@@ -855,7 +871,7 @@ if ( ! function_exists( 'rock_star_tag_category' ) ) :
 endif; //rock_star_tag_category
 
 
-if ( ! function_exists( 'rock_star_get_highlight_meta' ) ) :
+if (! function_exists('rock_star_get_highlight_meta')) :
 	/**
 	 * Returns HTML with meta information for the categories, tags, date and author.
 	 *
@@ -866,59 +882,65 @@ if ( ! function_exists( 'rock_star_get_highlight_meta' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_get_highlight_meta( $hide_category = false, $hide_tags = false, $hide_posted_by = false, $hide_author = false ) {
+	function rock_star_get_highlight_meta($hide_category = false, $hide_tags = false, $hide_posted_by = false, $hide_author = false)
+	{
 		$output = '<p class="entry-meta">';
 
-		if ( 'post' == get_post_type() ) {
+		if ('post' == get_post_type()) {
 
 			$class = $hide_category ? 'screen-reader-text' : '';
 
-			$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'rock-star' ) );
-			if ( $categories_list && rock_star_categorized_blog() ) {
-				$output .= sprintf( '<span class="cat-links ' . $class . '">%1$s%2$s</span>',
-					sprintf( _x( '<span class="screen-reader-text">Categories</span>', 'Used before category names.', 'rock-star' ) ),
+			$categories_list = get_the_category_list(_x(', ', 'Used between list items, there is a space after the comma.', 'rock-star'));
+			if ($categories_list && rock_star_categorized_blog()) {
+				$output .= sprintf(
+					'<span class="cat-links ' . $class . '">%1$s%2$s</span>',
+					sprintf(_x('<span class="screen-reader-text">Categories</span>', 'Used before category names.', 'rock-star')),
 					$categories_list
 				);
 			}
 
 			$class = $hide_tags ? 'screen-reader-text' : '';
 
-			$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'rock-star' ) );
-			if ( $tags_list ) {
-				$output .= sprintf( '<span class="tags-links ' . $class . '">%1$s%2$s</span>',
-					sprintf( _x( '<span class="screen-reader-text">Tags</span>', 'Used before tag names.', 'rock-star' ) ),
+			$tags_list = get_the_tag_list('', _x(', ', 'Used between list items, there is a space after the comma.', 'rock-star'));
+			if ($tags_list) {
+				$output .= sprintf(
+					'<span class="tags-links ' . $class . '">%1$s%2$s</span>',
+					sprintf(_x('<span class="screen-reader-text">Tags</span>', 'Used before tag names.', 'rock-star')),
 					$tags_list
 				);
 			}
 
 			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-			if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			if (get_the_time('U') !== get_the_modified_time('U')) {
 				$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 			}
 
-			$time_string = sprintf( $time_string,
-				esc_attr( get_the_date( 'c' ) ),
-				esc_html( get_the_date() ),
-				esc_attr( get_the_modified_date( 'c' ) ),
-				esc_html( get_the_modified_date() )
+			$time_string = sprintf(
+				$time_string,
+				esc_attr(get_the_date('c')),
+				esc_html(get_the_date()),
+				esc_attr(get_the_modified_date('c')),
+				esc_html(get_the_modified_date())
 			);
 
 			$class = $hide_posted_by ? 'screen-reader-text' : '';
 
-			$output .= sprintf( '<span class="posted-on ' . $class . '">%1$s<a href="%2$s" rel="bookmark">%3$s</a></span>',
-				sprintf( _x( '<span class="screen-reader-text">Posted on</span>', 'Used before publish date.', 'rock-star' ) ),
-				esc_url( get_permalink() ),
+			$output .= sprintf(
+				'<span class="posted-on ' . $class . '">%1$s<a href="%2$s" rel="bookmark">%3$s</a></span>',
+				sprintf(_x('<span class="screen-reader-text">Posted on</span>', 'Used before publish date.', 'rock-star')),
+				esc_url(get_permalink()),
 				$time_string
 			);
 
-			if ( is_singular() || is_multi_author() ) {
+			if (is_singular() || is_multi_author()) {
 				$class = $hide_author ? 'screen-reader-text' : '';
 
-				$output .= sprintf( '<span class="byline ' . $class . '"><span class="author vcard">%1$s<a class="url fn n" href="%2$s">%3$s</a></span></span>',
-					sprintf( _x( '<span class="screen-reader-text">Author</span>', 'Used before post author name.', 'rock-star' ) ),
-					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-					esc_html( get_the_author() )
+				$output .= sprintf(
+					'<span class="byline ' . $class . '"><span class="author vcard">%1$s<a class="url fn n" href="%2$s">%3$s</a></span></span>',
+					sprintf(_x('<span class="screen-reader-text">Author</span>', 'Used before post author name.', 'rock-star')),
+					esc_url(get_author_posts_url(get_the_author_meta('ID'))),
+					esc_html(get_the_author())
 				);
 			}
 		}
@@ -935,20 +957,21 @@ endif; //rock_star_get_highlight_meta
  *
  * @since Rock Star 0.3
  */
-function rock_star_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
+function rock_star_categorized_blog()
+{
+	if (false === ($all_the_cool_cats = get_transient('all_the_cool_cats'))) {
 		// Create an array of all the categories that are attached to posts
-		$all_the_cool_cats = get_categories( array(
+		$all_the_cool_cats = get_categories(array(
 			'hide_empty' => 1,
-		) );
+		));
 
 		// Count the number of categories that are attached to the posts
-		$all_the_cool_cats = count( $all_the_cool_cats );
+		$all_the_cool_cats = count($all_the_cool_cats);
 
-		set_transient( 'all_the_cool_cats', $all_the_cool_cats );
+		set_transient('all_the_cool_cats', $all_the_cool_cats);
 	}
 
-	if ( '1' != $all_the_cool_cats ) {
+	if ('1' != $all_the_cool_cats) {
 		// This blog has more than 1 category so rock_star_categorized_blog should return true
 		return true;
 	} else {
@@ -963,11 +986,12 @@ function rock_star_categorized_blog() {
  *
  * @since Rock Star 0.3
  */
-function rock_star_page_menu_args( $args ) {
+function rock_star_page_menu_args($args)
+{
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'rock_star_page_menu_args' );
+add_filter('wp_page_menu_args', 'rock_star_page_menu_args');
 
 
 /**
@@ -975,20 +999,21 @@ add_filter( 'wp_page_menu_args', 'rock_star_page_menu_args' );
  *
  * @since Rock Star 0.3
  */
-function rock_star_enhanced_image_navigation( $url, $id ) {
-	if ( ! is_attachment() && ! wp_attachment_is_image( $id ) )
+function rock_star_enhanced_image_navigation($url, $id)
+{
+	if (! is_attachment() && ! wp_attachment_is_image($id))
 		return $url;
 
-	$image = get_post( $id );
-	if ( ! empty( $image->post_parent ) && $image->post_parent != $id )
+	$image = get_post($id);
+	if (! empty($image->post_parent) && $image->post_parent != $id)
 		$url .= '#main';
 
 	return $url;
 }
-add_filter( 'attachment_link', 'rock_star_enhanced_image_navigation', 10, 2 );
+add_filter('attachment_link', 'rock_star_enhanced_image_navigation', 10, 2);
 
 
-if ( ! function_exists( 'rock_star_excerpt_length' ) ) :
+if (! function_exists('rock_star_excerpt_length')) :
 	/**
 	 * Sets the post excerpt length to n words.
 	 *
@@ -997,47 +1022,50 @@ if ( ! function_exists( 'rock_star_excerpt_length' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_excerpt_length( $length ) {
+	function rock_star_excerpt_length($length)
+	{
 		// Getting data from Customizer Options
 		$options	= rock_star_get_theme_options();
 		$length	= $options['excerpt_length'];
 		return $length;
 	}
 endif; //rock_star_excerpt_length
-add_filter( 'excerpt_length', 'rock_star_excerpt_length' );
+add_filter('excerpt_length', 'rock_star_excerpt_length');
 
 
-if ( ! function_exists( 'rock_star_continue_reading' ) ) :
+if (! function_exists('rock_star_continue_reading')) :
 	/**
 	 * Returns a "Custom Continue Reading" link for excerpts
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_continue_reading() {
+	function rock_star_continue_reading()
+	{
 		// Getting data from Customizer Options
 		$options		=	rock_star_get_theme_options();
 		$more_tag_text	= $options['excerpt_more_text'];
 
-		return ' <span class="read-more"><a class="more-link btn btn-transparent" href="' . esc_url( get_permalink() ) . '">' .  $more_tag_text . '</a></span>';
+		return ' <span class="read-more"><a class="more-link btn btn-transparent" href="' . esc_url(get_permalink()) . '">' .  $more_tag_text . '</a></span>';
 	}
 endif; //rock_star_continue_reading
-add_filter( 'excerpt_more', 'rock_star_continue_reading' );
+add_filter('excerpt_more', 'rock_star_continue_reading');
 
 
-if ( ! function_exists( 'rock_star_excerpt_more' ) ) :
+if (! function_exists('rock_star_excerpt_more')) :
 	/**
 	 * Replaces "[...]" (appended to automatically generated excerpts) with rock_star_continue_reading().
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_excerpt_more( $more ) {
+	function rock_star_excerpt_more($more)
+	{
 		return rock_star_continue_reading();
 	}
 endif; //rock_star_excerpt_more
-add_filter( 'excerpt_more', 'rock_star_excerpt_more' );
+add_filter('excerpt_more', 'rock_star_excerpt_more');
 
 
-if ( ! function_exists( 'rock_star_custom_excerpt' ) ) :
+if (! function_exists('rock_star_custom_excerpt')) :
 	/**
 	 * Adds Continue Reading link to more tag excerpts.
 	 *
@@ -1045,17 +1073,18 @@ if ( ! function_exists( 'rock_star_custom_excerpt' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_custom_excerpt( $output ) {
-		if ( has_excerpt() && ! is_attachment() ) {
+	function rock_star_custom_excerpt($output)
+	{
+		if (has_excerpt() && ! is_attachment()) {
 			$output .= rock_star_continue_reading();
 		}
 		return $output;
 	}
 endif; //rock_star_custom_excerpt
-add_filter( 'get_the_excerpt', 'rock_star_custom_excerpt' );
+add_filter('get_the_excerpt', 'rock_star_custom_excerpt');
 
 
-if ( ! function_exists( 'rock_star_more_link' ) ) :
+if (! function_exists('rock_star_more_link')) :
 	/**
 	 * Replacing Continue Reading link to the_content more.
 	 *
@@ -1063,50 +1092,52 @@ if ( ! function_exists( 'rock_star_more_link' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_more_link( $more_link, $more_link_text ) {
-	 	$options		=	rock_star_get_theme_options();
+	function rock_star_more_link($more_link, $more_link_text)
+	{
+		$options		=	rock_star_get_theme_options();
 		$more_tag_text	= $options['excerpt_more_text'];
 
-		return str_replace( $more_link_text, $more_tag_text, $more_link );
+		return str_replace($more_link_text, $more_tag_text, $more_link);
 	}
 endif; //rock_star_more_link
-add_filter( 'the_content_more_link', 'rock_star_more_link', 10, 2 );
+add_filter('the_content_more_link', 'rock_star_more_link', 10, 2);
 
 
-if ( ! function_exists( 'rock_star_body_classes' ) ) :
+if (! function_exists('rock_star_body_classes')) :
 	/**
 	 * Adds Rock Star layout classes to the array of body classes.
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_body_classes( $classes ) {
+	function rock_star_body_classes($classes)
+	{
 		global $wp_query;
 		$options = rock_star_get_theme_options();
 
 		// Adds a class of group-blog to blogs with more than 1 published author
-		if ( is_multi_author() ) {
+		if (is_multi_author()) {
 			$classes[] = 'group-blog';
 		}
 
 		$layout = rock_star_get_theme_layout();
 
-		switch ( $layout ) {
+		switch ($layout) {
 			case 'left-sidebar':
 				$classes[] = 'layout-two-columns content-right';
-			break;
+				break;
 
 			case 'right-sidebar':
 				$classes[] = 'layout-two-columns content-left';
-			break;
+				break;
 
 			case 'no-sidebar-full-width':
 				$classes[] = 'layout-one-column no-sidebar full-width';
-			break;
+				break;
 		}
 
 		$current_content_layout = $options['content_layout'];
-		if ( "" != $current_content_layout ) {
-			$classes[] = esc_attr( $current_content_layout );
+		if ("" != $current_content_layout) {
+			$classes[] = esc_attr($current_content_layout);
 		}
 
 		$page_id        = $wp_query->get_queried_object_id();
@@ -1116,14 +1147,14 @@ if ( ! function_exists( 'rock_star_body_classes' ) ) :
 		$enable_slider   = $options['featured_slider_option'];
 		$slider_disabled = true;
 
-		if ( 'entire-site' == $enable_slider || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && 'homepage' == $enable_slider ) ) {
+		if ('entire-site' == $enable_slider || ((is_front_page() || (is_home() && $page_for_posts != $page_id)) && 'homepage' == $enable_slider)) {
 			$slider_disabled = false;
 		}
 
 		//Check if header image is enabled
 		$header_image_disabled = !rock_star_featured_image();
 
-		if ( $slider_disabled && $header_image_disabled ) {
+		if ($slider_disabled && $header_image_disabled) {
 			//Add class if slider and header image is  disabled
 			$classes[] = 'header-bg';
 		}
@@ -1131,17 +1162,17 @@ if ( ! function_exists( 'rock_star_body_classes' ) ) :
 		//Check if news-ticker is inactive
 		$enable_news_ticker = $options['news_ticker_option'];
 
-		if ( 'entire-site' == $enable_news_ticker || ( ( is_front_page() || ( is_home() && $page_for_posts != $page_id ) ) && 'homepage' == $enable_news_ticker ) ) {
+		if ('entire-site' == $enable_news_ticker || ((is_front_page() || (is_home() && $page_for_posts != $page_id)) && 'homepage' == $enable_news_ticker)) {
 			$classes[] = 'news-ticker-' . $options['news_ticker_position'];
 		}
 
 
-		$classes = apply_filters( 'rock_star_body_classes', $classes );
+		$classes = apply_filters('rock_star_body_classes', $classes);
 
 		return $classes;
 	}
 endif; //rock_star_body_classes
-add_filter( 'body_class', 'rock_star_body_classes' );
+add_filter('body_class', 'rock_star_body_classes');
 
 
 /**
@@ -1149,24 +1180,25 @@ add_filter( 'body_class', 'rock_star_body_classes' );
  *
  * @since Rock Star 0.3
  */
-function rock_star_footer_sidebar_class() {
+function rock_star_footer_sidebar_class()
+{
 	$count = 0;
 
-	if ( is_active_sidebar( 'footer-1' ) )
+	if (is_active_sidebar('footer-1'))
 		$count++;
 
-	if ( is_active_sidebar( 'footer-2' ) )
+	if (is_active_sidebar('footer-2'))
 		$count++;
 
-	if ( is_active_sidebar( 'footer-3' ) )
+	if (is_active_sidebar('footer-3'))
 		$count++;
 
-	if ( is_active_sidebar( 'footer-4' ) )
+	if (is_active_sidebar('footer-4'))
 		$count++;
 
 	$class = '';
 
-	switch ( $count ) {
+	switch ($count) {
 		case '1':
 			$class = 'widget-area one';
 			break;
@@ -1181,34 +1213,35 @@ function rock_star_footer_sidebar_class() {
 			break;
 	}
 
-	if ( $class )
+	if ($class)
 		echo 'class="' . $class . '"';
 }
 
 
-if ( ! function_exists( 'rock_star_post_classes' ) ) :
+if (! function_exists('rock_star_post_classes')) :
 	/**
 	 * Adds Rock Star post classes to the array of post classes.
 	 * used for supporting different content layouts
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_post_classes( $classes ) {
+	function rock_star_post_classes($classes)
+	{
 		//Getting Ready to load data from Theme Options Panel
 		$options = rock_star_get_theme_options();
 
 		$contentlayout = $options['content_layout'];
 
-		if ( is_archive() || is_home() ) {
-			$classes[] = esc_attr( $contentlayout );
+		if (is_archive() || is_home()) {
+			$classes[] = esc_attr($contentlayout);
 		}
 
 		return $classes;
 	}
 endif; //rock_star_post_classes
-add_filter( 'post_class', 'rock_star_post_classes' );
+add_filter('post_class', 'rock_star_post_classes');
 
-if ( ! function_exists( 'rock_star_get_theme_layout' ) ) :
+if (! function_exists('rock_star_get_theme_layout')) :
 	/**
 	 * Returns Theme Layout prioritizing the meta box layouts
 	 *
@@ -1218,36 +1251,34 @@ if ( ! function_exists( 'rock_star_get_theme_layout' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_get_theme_layout() {
+	function rock_star_get_theme_layout()
+	{
 		$id = '';
 
 		global $post, $wp_query;
 
 		// Front page displays in Reading Settings
-		$page_on_front  = get_option('page_on_front') ;
+		$page_on_front  = get_option('page_on_front');
 		$page_for_posts = get_option('page_for_posts');
 
 		// Get Page ID outside Loop
 		$page_id = $wp_query->get_queried_object_id();
 
 		// Blog Page or Front Page setting in Reading Settings
-		if ( $page_id == $page_for_posts || $page_id == $page_on_front ) {
-		    $id = $page_id;
-		}
-		elseif ( is_singular() ) {
-				if ( is_attachment() ) {
+		if ($page_id == $page_for_posts || $page_id == $page_on_front) {
+			$id = $page_id;
+		} elseif (is_singular()) {
+			if (is_attachment()) {
 				$id = $post->post_parent;
-			}
-			else {
+			} else {
 				$id = $post->ID;
 			}
 		}
 
 		//Get appropriate metabox value of layout
-		if ( '' != $id ) {
-			$layout = get_post_meta( $id, 'rock-star-layout-option', true );
-		}
-		else {
+		if ('' != $id) {
+			$layout = get_post_meta($id, 'rock-star-layout-option', true);
+		} else {
 			$layout = 'default';
 		}
 
@@ -1255,11 +1286,10 @@ if ( ! function_exists( 'rock_star_get_theme_layout' ) ) :
 		$options = rock_star_get_theme_options();
 
 		//check empty and load default
-		if ( empty( $layout ) || 'default' == $layout ) {
-			if ( is_single() || is_page() ) {
+		if (empty($layout) || 'default' == $layout) {
+			if (is_single() || is_page()) {
 				$layout = $options['single_page_post_layout'];
-			}
-			else {
+			} else {
 				$layout = $options['theme_layout'];
 			}
 		}
@@ -1269,7 +1299,7 @@ if ( ! function_exists( 'rock_star_get_theme_layout' ) ) :
 endif; //rock_star_get_theme_layout
 
 
-if ( ! function_exists( 'rock_star_archive_content_image' ) ) :
+if (! function_exists('rock_star_archive_content_image')) :
 	/**
 	 * Template for Featured Image in Archive Content
 	 *
@@ -1278,24 +1308,25 @@ if ( ! function_exists( 'rock_star_archive_content_image' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_archive_content_image() {
+	function rock_star_archive_content_image()
+	{
 		$options        = rock_star_get_theme_options();
 		$content_layout = $options['content_layout'];
 
-		if ( has_post_thumbnail() && 'full-content' != $content_layout ) { ?>
-			<figure class="featured-image">
-	            <a rel="bookmark" href="<?php the_permalink(); ?>">
-	            <?php the_post_thumbnail(); ?>
-				</a>
-	        </figure>
-	   	<?php
+		if (has_post_thumbnail() && 'full-content' != $content_layout) { ?>
+				<figure class="featured-image">
+					<a rel="bookmark" href="<?php the_permalink(); ?>">
+						<?php the_post_thumbnail(); ?>
+					</a>
+				</figure>
+			<?php
 		}
 	}
 endif; //rock_star_archive_content_image
-add_action( 'rock_star_before_entry_container', 'rock_star_archive_content_image', 10 );
+add_action('rock_star_before_entry_container', 'rock_star_archive_content_image', 10);
 
 
-if ( ! function_exists( 'rock_star_single_content_image' ) ) :
+if (! function_exists('rock_star_single_content_image')) :
 	/**
 	 * Template for Featured Image in Single Post
 	 *
@@ -1304,68 +1335,64 @@ if ( ! function_exists( 'rock_star_single_content_image' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_single_content_image() {
+	function rock_star_single_content_image()
+	{
 		global $post, $wp_query;
 
 		// Get Page ID outside Loop
 		$page_id = $wp_query->get_queried_object_id();
-		if ( $post ) {
-	 		if ( is_attachment() ) {
+		if ($post) {
+			if (is_attachment()) {
 				$parent = $post->post_parent;
-				$individual_featured_image = get_post_meta( $parent,'rock-star-featured-image', true );
+				$individual_featured_image = get_post_meta($parent, 'rock-star-featured-image', true);
 			} else {
-				$individual_featured_image = get_post_meta( $page_id,'rock-star-featured-image', true );
+				$individual_featured_image = get_post_meta($page_id, 'rock-star-featured-image', true);
 			}
 		}
 
-		if ( empty( $individual_featured_image ) || ( !is_page() && !is_single() ) ) {
+		if (empty($individual_featured_image) || (!is_page() && !is_single())) {
 			$individual_featured_image = 'default';
 		}
 
 		// Getting data from Theme Options
-	   	$options = rock_star_get_theme_options();
+		$options = rock_star_get_theme_options();
 
 		$featured_image = $options['single_post_image_size'];
 
-		if ( ( 'disable' == $individual_featured_image  || '' == get_the_post_thumbnail() || ( $individual_featured_image=='default' && 'disabled' == $featured_image ) ) ) {
+		if (('disable' == $individual_featured_image  || '' == get_the_post_thumbnail() || ($individual_featured_image == 'default' && 'disabled' == $featured_image))) {
 			echo '<!-- Page/Post Single Image Disabled or No Image set in Post Thumbnail -->';
 			return false;
-		}
-		else {
+		} else {
 			$class = '';
 
-			if ( 'default' == $individual_featured_image ) {
+			if ('default' == $individual_featured_image) {
 				$class = $featured_image;
-			}
-			else {
+			} else {
 				$class = 'from-metabox ' . $individual_featured_image;
 			}
 
 			?>
-			<figure class="featured-image <?php echo $class; ?>">
-                <?php
-				if ( 'large' == $individual_featured_image  || ( $individual_featured_image=='default' && 'large' == $featured_image  ) ) {
-                     the_post_thumbnail( 'large' );
-                }
-               	elseif ( 'slider' == $individual_featured_image  || ( $individual_featured_image=='default' && 'slider-image-size' == $featured_image  ) ) {
-					the_post_thumbnail( 'rock-star-slider' );
-				}
-				elseif ( 'featured' == $individual_featured_image  || ( $individual_featured_image=='default' && 'featured' == $featured_image  ) ) {
-					the_post_thumbnail( 'rock-star-featured' );
-				}
-				else {
-					the_post_thumbnail( 'full' );
-				} ?>
-	        </figure>
-	   	<?php
+				<figure class="featured-image <?php echo $class; ?>">
+					<?php
+					if ('large' == $individual_featured_image  || ($individual_featured_image == 'default' && 'large' == $featured_image)) {
+						the_post_thumbnail('large');
+					} elseif ('slider' == $individual_featured_image  || ($individual_featured_image == 'default' && 'slider-image-size' == $featured_image)) {
+						the_post_thumbnail('rock-star-slider');
+					} elseif ('featured' == $individual_featured_image  || ($individual_featured_image == 'default' && 'featured' == $featured_image)) {
+						the_post_thumbnail('rock-star-featured');
+					} else {
+						the_post_thumbnail('full');
+					} ?>
+				</figure>
+	<?php
 		}
 	}
 endif; //rock_star_single_content_image
-add_action( 'rock_star_before_post_container', 'rock_star_single_content_image', 10 );
-add_action( 'rock_star_before_page_container', 'rock_star_single_content_image', 10 );
+add_action('rock_star_before_post_container', 'rock_star_single_content_image', 10);
+add_action('rock_star_before_page_container', 'rock_star_single_content_image', 10);
 
 
-if ( ! function_exists( 'rock_star_get_comment_section' ) ) :
+if (! function_exists('rock_star_get_comment_section')) :
 	/**
 	 * Comment Section
 	 *
@@ -1375,13 +1402,14 @@ if ( ! function_exists( 'rock_star_get_comment_section' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_get_comment_section() {
-		if ( comments_open() || '0' != get_comments_number() ) {
+	function rock_star_get_comment_section()
+	{
+		if (comments_open() || '0' != get_comments_number()) {
 			comments_template();
 		}
 	}
 endif;
-add_action( 'rock_star_comment_section', 'rock_star_get_comment_section', 10 );
+add_action('rock_star_comment_section', 'rock_star_get_comment_section', 10);
 
 
 /**
@@ -1393,28 +1421,29 @@ add_action( 'rock_star_comment_section', 'rock_star_get_comment_section', 10 );
  *
  * @since Rock Star 0.3
  */
-function rock_star_footer_content() {
+function rock_star_footer_content()
+{
 	//rock_star_flush_transients();
-	if ( ( !$footer_content = get_transient( 'rock_star_footer_content' ) ) ) {
+	if ((!$footer_content = get_transient('rock_star_footer_content'))) {
 		$theme_data = wp_get_theme();
-		$year       =  esc_attr( date_i18n( __( 'Y', 'rock-star' ) ) );
-		$site_link  = '<a href="'. esc_url( home_url( '/' ) ) .'">'. esc_attr( get_bloginfo( 'name', 'display' ) ) . '</a>';
+		$year       =  esc_attr(date_i18n(__('Y', 'rock-star')));
+		$site_link  = '<a href="' . esc_url(home_url('/')) . '">' . esc_attr(get_bloginfo('name', 'display')) . '</a>';
 		$privacy_policy = get_the_privacy_policy_link();
 
 		$footer_content =  '
 			<div id="site-generator" class="site-info" role="contentinfo">
 				<div class="wrapper">
-					<span>' . sprintf( _x( 'Copyright &copy; %1$s %2$s. All Rights Reserved. %3$s', '1: Year, 2: Site Title with home URL, 3: Privacy Policy Link', 'rock-star' ), $year, $site_link, $privacy_policy ) . ' &#124; ' . $theme_data->get( 'Name' ) . '&nbsp;' . esc_html__( 'by', 'rock-star' ). '&nbsp;<a target="_blank" href="'. esc_url( $theme_data->get( 'AuthorURI' ) ) .'">'. esc_html( $theme_data->get( 'Author' ) ) .'</a>' . '</span>
+					<span>' . sprintf(_x('Copyright &copy; %1$s %2$s. All Rights Reserved. %3$s', '1: Year, 2: Site Title with home URL, 3: Privacy Policy Link', 'rock-star'), $year, $site_link, $privacy_policy) . ' &#124; ' . $theme_data->get('Name') . '&nbsp;' . esc_html__('by', 'rock-star') . '&nbsp;<a target="_blank" href="' . esc_url($theme_data->get('AuthorURI')) . '">' . esc_html($theme_data->get('Author')) . '</a>' . '</span>
 				</div><!-- .wrapper -->
 			</div><!-- .site-info -->
 	    	';
 
-	    set_transient( 'rock_star_footer_content', $footer_content, 86940 );
-    }
+		set_transient('rock_star_footer_content', $footer_content, 86940);
+	}
 
-    echo $footer_content;
+	echo $footer_content;
 }
-add_action( 'rock_star_footer', 'rock_star_footer_content', 100 );
+add_action('rock_star_footer', 'rock_star_footer_content', 100);
 
 
 /**
@@ -1427,68 +1456,71 @@ add_action( 'rock_star_footer', 'rock_star_footer_content', 100 );
  * @since Rock Star 0.3
  */
 
-function rock_star_get_first_image( $postID, $size, $attr ) {
+function rock_star_get_first_image($postID, $size, $attr)
+{
 	ob_start();
 
 	ob_end_clean();
 
 	$image 	= '';
 
-	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', get_post_field('post_content', $postID ) , $matches);
+	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', get_post_field('post_content', $postID), $matches);
 
-	if ( isset( $matches [1] [0] ) ) {
+	if (isset($matches[1][0])) {
 		//Get first image
-		$first_img = $matches [1] [0];
+		$first_img = $matches[1][0];
 
-		return '<img class="wp-post-image" src="'. esc_url( $first_img ) .'">';
+		return '<img class="wp-post-image" src="' . esc_url($first_img) . '">';
 	}
 
 	return false;
 }
 
 
-if ( ! function_exists( 'rock_star_scrollup' ) ) {
+if (! function_exists('rock_star_scrollup')) {
 	/**
 	 * This function loads Scroll Up Navigation
 	 *
 	 * @action rock_star_footer action
 	 * @uses set_transient and delete_transient
 	 */
-	function rock_star_scrollup() {
+	function rock_star_scrollup()
+	{
 		// get the data value from theme options
 		$options = rock_star_get_theme_options();
 
-		if ( $options['disable_scrollup'] ) {
+		if ($options['disable_scrollup']) {
 			//bail if scroll up is disabled
 			return;
 		}
 
 		echo '
-		<div class="backtotop genericon genericon-collapse">
-			<span class="screen-reader-text">' . esc_html__( 'Scroll Up', 'rock-star' ) . '</span>
-		</div><!-- .backtotop -->' ;
+		<div class="backtotop font-awesome fa-collapse">
+			<span class="screen-reader-text">' . esc_html__('Scroll Up', 'rock-star') . '</span>
+		</div><!-- .backtotop -->';
 	}
 }
-add_action( 'rock_star_after', 'rock_star_scrollup', 10 );
+add_action('rock_star_after', 'rock_star_scrollup', 10);
 
 
-if ( ! function_exists( 'rock_star_page_post_meta' ) ) :
+if (! function_exists('rock_star_page_post_meta')) :
 	/**
 	 * Post/Page Meta for Google Structure Data
 	 */
-	function rock_star_page_post_meta() {
-		$author_url     = esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) );
+	function rock_star_page_post_meta()
+	{
+		$author_url     = esc_url(get_author_posts_url(get_the_author_meta("ID")));
 
 		$page_post_meta = '
-			<span class="post-time">' . esc_html__( 'Posted on', 'rock-star' ) . '
-				<time class="entry-date updated" datetime="' . esc_attr( get_the_date( 'c' ) ) . '">' . esc_html( get_the_date() ) . '</time>
+			<span class="post-time">' . esc_html__('Posted on', 'rock-star') . '
+				<time class="entry-date updated" datetime="' . esc_attr(get_the_date('c')) . '">' . esc_html(get_the_date()) . '</time>
 			</span>
 
 			<span class="post-author">
-				' . esc_html__( 'By', 'rock-star' ) . '
+				' . esc_html__('By', 'rock-star') . '
 
 				<span class="author vcard">
-					<a class="url fn n" href="' . esc_url( $author_url ) . '" title="View all posts by ' . esc_attr( get_the_author() ) . '" rel="author">' . esc_html( get_the_author() ) . '</a>
+					<a class="url fn n" href="' . esc_url($author_url) . '" title="View all posts by ' . esc_attr(get_the_author()) . '" rel="author">' . esc_html(get_the_author()) . '</a>
 					</span>
 			</span>';
 
@@ -1497,7 +1529,7 @@ if ( ! function_exists( 'rock_star_page_post_meta' ) ) :
 endif; //rock_star_page_post_meta
 
 
-if ( ! function_exists( 'rock_star_truncate_phrase' ) ) :
+if (! function_exists('rock_star_truncate_phrase')) :
 	/**
 	 * Return a phrase shortened in length to a maximum number of characters.
 	 *
@@ -1513,16 +1545,17 @@ if ( ! function_exists( 'rock_star_truncate_phrase' ) ) :
 	 *
 	 * @return string Truncated string
 	 */
-	function rock_star_truncate_phrase( $text, $max_characters ) {
+	function rock_star_truncate_phrase($text, $max_characters)
+	{
 
-		$text = trim( $text );
+		$text = trim($text);
 
-		if ( mb_strlen( $text ) > $max_characters ) {
+		if (mb_strlen($text) > $max_characters) {
 			//* Truncate $text to $max_characters + 1
-			$text = mb_substr( $text, 0, $max_characters + 1 );
+			$text = mb_substr($text, 0, $max_characters + 1);
 
 			//* Truncate to the last space in the truncated string
-			$text = trim( mb_substr( $text, 0, mb_strrpos( $text, ' ' ) ) );
+			$text = trim(mb_substr($text, 0, mb_strrpos($text, ' ')));
 		}
 
 		return $text;
@@ -1530,7 +1563,7 @@ if ( ! function_exists( 'rock_star_truncate_phrase' ) ) :
 endif; //rock_star_truncate_phrase
 
 
-if ( ! function_exists( 'rock_star_get_the_content_limit' ) ) :
+if (! function_exists('rock_star_get_the_content_limit')) :
 	/**
 	 * Return content stripped down and limited content.
 	 *
@@ -1544,35 +1577,35 @@ if ( ! function_exists( 'rock_star_get_the_content_limit' ) ) :
 	 *
 	 * @return string Limited content.
 	 */
-	function rock_star_get_the_content_limit( $max_characters, $more_link_text = '(more...)', $stripteaser = false ) {
+	function rock_star_get_the_content_limit($max_characters, $more_link_text = '(more...)', $stripteaser = false)
+	{
 
-		$content = get_the_content( '', $stripteaser );
+		$content = get_the_content('', $stripteaser);
 
 		//* Strip tags and shortcodes so the content truncation count is done correctly
-		$content = strip_tags( strip_shortcodes( $content ), apply_filters( 'get_the_content_limit_allowedtags', '<script>,<style>' ) );
+		$content = strip_tags(strip_shortcodes($content), apply_filters('get_the_content_limit_allowedtags', '<script>,<style>'));
 
 		//* Remove inline styles / scripts
-		$content = trim( preg_replace( '#<(s(cript|tyle)).*?</\1>#si', '', $content ) );
+		$content = trim(preg_replace('#<(s(cript|tyle)).*?</\1>#si', '', $content));
 
 		//* Truncate $content to $max_char
-		$content = rock_star_truncate_phrase( $content, $max_characters );
+		$content = rock_star_truncate_phrase($content, $max_characters);
 
 		//* More link?
-		if ( $more_link_text ) {
-			$link   = apply_filters( 'get_the_content_more_link', sprintf( '<a href="%s" class="more-link">%s</a>', esc_url( get_permalink() ), $more_link_text ), $more_link_text );
-			$output = sprintf( '<p>%s %s</p>', $content, $link );
+		if ($more_link_text) {
+			$link   = apply_filters('get_the_content_more_link', sprintf('<a href="%s" class="more-link">%s</a>', esc_url(get_permalink()), $more_link_text), $more_link_text);
+			$output = sprintf('<p>%s %s</p>', $content, $link);
 		} else {
-			$output = sprintf( '<p>%s</p>', $content );
+			$output = sprintf('<p>%s</p>', $content);
 			$link = '';
 		}
 
-		return apply_filters( 'rock_star_get_the_content_limit', $output, $content, $link, $max_characters );
-
+		return apply_filters('rock_star_get_the_content_limit', $output, $content, $link, $max_characters);
 	}
 endif; //rock_star_get_the_content_limit
 
 
-if ( ! function_exists( 'rock_star_post_navigation' ) ) :
+if (! function_exists('rock_star_post_navigation')) :
 	/**
 	 * Displays Single post Navigation
 	 *
@@ -1582,18 +1615,19 @@ if ( ! function_exists( 'rock_star_post_navigation' ) ) :
 	 *
 	 * @since Rock Star 0.3
 	 */
-	function rock_star_post_navigation() {
+	function rock_star_post_navigation()
+	{
 		// Previous/next post navigation.
-		the_post_navigation( array(
-			'next_text' => '<span class="screen-reader-text">' . esc_html__( 'Next post:', 'rock-star' ) . '</span> ' .
-				'<span class="post-title">%title</span> <span class="meta-nav"> &rarr;</span>' ,
+		the_post_navigation(array(
+			'next_text' => '<span class="screen-reader-text">' . esc_html__('Next post:', 'rock-star') . '</span> ' .
+				'<span class="post-title">%title</span> <span class="meta-nav"> &rarr;</span>',
 			'prev_text' => '<span class="meta-nav" aria-hidden="true">&larr; </span>' .
-				'<span class="screen-reader-text">' . esc_html__( 'Previous post:', 'rock-star' ) . '</span>' .
+				'<span class="screen-reader-text">' . esc_html__('Previous post:', 'rock-star') . '</span>' .
 				'<span class="post-title">%title</span>',
-		) );
+		));
 	}
 endif; //rock_star_post_navigation
-add_action( 'rock_star_after_post', 'rock_star_post_navigation', 10 );
+add_action('rock_star_after_post', 'rock_star_post_navigation', 10);
 
 
 /**
@@ -1604,7 +1638,8 @@ add_action( 'rock_star_after_post', 'rock_star_post_navigation', 10 );
  * @param  [array] $selected    [selected values]
  * @param  string $label [label of the field]
  */
-function rock_star_dropdown_categories( $name, $id, $selected, $label = '' ) {
+function rock_star_dropdown_categories($name, $id, $selected, $label = '')
+{
 	$dropdown = wp_dropdown_categories(
 		array(
 			'name'             => $name,
@@ -1615,21 +1650,21 @@ function rock_star_dropdown_categories( $name, $id, $selected, $label = '' ) {
 		)
 	);
 
-	if ( '' != $label ) {
+	if ('' != $label) {
 		echo '<label for="' . $id . '">
-			'. $label .'
+			' . $label . '
 			</label>';
 	}
 
-	$dropdown = str_replace('<select', '<select multiple = "multiple" style = "height:120px; width: 100%" ', $dropdown );
+	$dropdown = str_replace('<select', '<select multiple = "multiple" style = "height:120px; width: 100%" ', $dropdown);
 
-	foreach( $selected as $selected ) {
-		$dropdown = str_replace( 'value="'. $selected .'"', 'value="'. $selected .'" selected="selected"', $dropdown );
+	foreach ($selected as $selected) {
+		$dropdown = str_replace('value="' . $selected . '"', 'value="' . $selected . '" selected="selected"', $dropdown);
 	}
 
 	echo $dropdown;
 
-	echo '<span class="description">'. esc_html__( 'Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.', 'rock-star' ) . '</span>';
+	echo '<span class="description">' . esc_html__('Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.', 'rock-star') . '</span>';
 }
 
 
@@ -1644,10 +1679,11 @@ function rock_star_dropdown_categories( $name, $id, $selected, $label = '' ) {
  *
  * @return array Two-dimensional, with width, height and crop sub-keys.
  */
-function rock_star_get_additional_image_sizes() {
+function rock_star_get_additional_image_sizes()
+{
 	global $_wp_additional_image_sizes;
 
-	if ( $_wp_additional_image_sizes )
+	if ($_wp_additional_image_sizes)
 		return $_wp_additional_image_sizes;
 
 	return array();
@@ -1659,80 +1695,82 @@ function rock_star_get_additional_image_sizes() {
  *
  * Runs if version number saved in theme_mod "custom_css_version" doesn't match current theme version.
  */
-function rock_star_custom_css_migrate(){
-	$ver = get_theme_mod( 'custom_css_version', false );
+function rock_star_custom_css_migrate()
+{
+	$ver = get_theme_mod('custom_css_version', false);
 
 	// Return if update has already been run
-	if ( version_compare( $ver, '4.7' ) >= 0 ) {
+	if (version_compare($ver, '4.7') >= 0) {
 		return;
 	}
 
-	if ( function_exists( 'wp_update_custom_css_post' ) ) {
-	    // Migrate any existing theme CSS to the core option added in WordPress 4.7.
+	if (function_exists('wp_update_custom_css_post')) {
+		// Migrate any existing theme CSS to the core option added in WordPress 4.7.
 
-	    /**
+		/**
 		 * Get Theme Options Values
 		 */
-	    $options = rock_star_get_theme_options();
+		$options = rock_star_get_theme_options();
 
-	    if ( '' != $options['custom_css'] ) {
+		if ('' != $options['custom_css']) {
 			$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
-			$return   = wp_update_custom_css_post( $core_css . $options['custom_css'] );
-	        if ( ! is_wp_error( $return ) ) {
-	            // Remove the old theme_mod, so that the CSS is stored in only one place moving forward.
-	            unset( $options['custom_css'] );
-	            set_theme_mod( 'rock_star_theme_options', $options );
+			$return   = wp_update_custom_css_post($core_css . $options['custom_css']);
+			if (! is_wp_error($return)) {
+				// Remove the old theme_mod, so that the CSS is stored in only one place moving forward.
+				unset($options['custom_css']);
+				set_theme_mod('rock_star_theme_options', $options);
 
-	            // Update to match custom_css_version so that script is not executed continously
-				set_theme_mod( 'custom_css_version', '4.7' );
-	        }
-	    }
+				// Update to match custom_css_version so that script is not executed continously
+				set_theme_mod('custom_css_version', '4.7');
+			}
+		}
 	}
 }
-add_action( 'after_setup_theme', 'rock_star_custom_css_migrate' );
+add_action('after_setup_theme', 'rock_star_custom_css_migrate');
 
-if ( ! function_exists( 'rock_star_blocks_support' ) ) :
+if (! function_exists('rock_star_blocks_support')) :
 	/**
 	 * Create add default blocks support
 	 */
-	function rock_star_blocks_support() {
+	function rock_star_blocks_support()
+	{
 		// Add support for Block Styles.
-		add_theme_support( 'wp-block-styles' );
+		add_theme_support('wp-block-styles');
 
 		// Add support for full and wide align images.
-		add_theme_support( 'align-wide' );
+		add_theme_support('align-wide');
 
 		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
+		add_theme_support('editor-styles');
 
 		// Add support for responsive embeds.
-		add_theme_support( 'responsive-embeds' );
+		add_theme_support('responsive-embeds');
 
 		// Add custom editor font sizes.
 		add_theme_support(
 			'editor-font-sizes',
 			array(
 				array(
-					'name'      => esc_html__( 'Small', 'rock-star' ),
-					'shortName' => esc_html__( 'S', 'rock-star' ),
+					'name'      => esc_html__('Small', 'rock-star'),
+					'shortName' => esc_html__('S', 'rock-star'),
 					'size'      => 14,
 					'slug'      => 'small',
 				),
 				array(
-					'name'      => esc_html__( 'Normal', 'rock-star' ),
-					'shortName' => esc_html__( 'M', 'rock-star' ),
+					'name'      => esc_html__('Normal', 'rock-star'),
+					'shortName' => esc_html__('M', 'rock-star'),
 					'size'      => 18,
 					'slug'      => 'normal',
 				),
 				array(
-					'name'      => esc_html__( 'Large', 'rock-star' ),
-					'shortName' => esc_html__( 'L', 'rock-star' ),
+					'name'      => esc_html__('Large', 'rock-star'),
+					'shortName' => esc_html__('L', 'rock-star'),
 					'size'      => 42,
 					'slug'      => 'large',
 				),
 				array(
-					'name'      => esc_html__( 'Huge', 'rock-star' ),
-					'shortName' => esc_html__( 'XL', 'rock-star' ),
+					'name'      => esc_html__('Huge', 'rock-star'),
+					'shortName' => esc_html__('XL', 'rock-star'),
 					'size'      => 54,
 					'slug'      => 'huge',
 				),
@@ -1740,49 +1778,50 @@ if ( ! function_exists( 'rock_star_blocks_support' ) ) :
 		);
 
 		// Add support for custom color scheme.
-		add_theme_support( 'editor-color-palette', array(
+		add_theme_support('editor-color-palette', array(
 			array(
-				'name'  => esc_html__( 'White', 'rock-star' ),
+				'name'  => esc_html__('White', 'rock-star'),
 				'slug'  => 'white',
 				'color' => '#ffffff',
 			),
 			array(
-				'name'  => esc_html__( 'Black', 'rock-star' ),
+				'name'  => esc_html__('Black', 'rock-star'),
 				'slug'  => 'black',
 				'color' => '#111111',
 			),
 			array(
-				'name'  => esc_html__( 'Gray', 'rock-star' ),
+				'name'  => esc_html__('Gray', 'rock-star'),
 				'slug'  => 'gray',
 				'color' => '#f4f4f4',
 			),
 			array(
-				'name'  => esc_html__( 'Blue', 'rock-star' ),
+				'name'  => esc_html__('Blue', 'rock-star'),
 				'slug'  => 'blue',
 				'color' => '#21759b',
 			),
 			array(
-				'name'  => esc_html__( 'Yellow', 'rock-star' ),
+				'name'  => esc_html__('Yellow', 'rock-star'),
 				'slug'  => 'yellow',
 				'color' => '#ffc300',
 			),
 			array(
-				'name'  => esc_html__( 'Red', 'rock-star' ),
+				'name'  => esc_html__('Red', 'rock-star'),
 				'slug'  => 'red',
 				'color' => '#e8554e',
 			),
-		) );
+		));
 	}
-	add_action( 'after_setup_theme', 'rock_star_blocks_support', 20 );
+	add_action('after_setup_theme', 'rock_star_blocks_support', 20);
 endif; //rock_star_blocks_support
 
-if ( ! function_exists( 'rock_star_add_blocks_style' ) ) :
+if (! function_exists('rock_star_add_blocks_style')) :
 	/**
 	 * Add Blocks Style
 	 */
-	function rock_star_add_blocks_style() {
+	function rock_star_add_blocks_style()
+	{
 		// Theme block stylesheet.
-		wp_enqueue_style( 'rock-star-block-style', get_theme_file_uri( '/css/blocks.css' ), array( 'rock-star-style' ), date( 'Ymd-Gis', filemtime( get_template_directory() . '/css/blocks.css' ) ) );
+		wp_enqueue_style('rock-star-block-style', get_theme_file_uri('/css/blocks.css'), array('rock-star-style'), date('Ymd-Gis', filemtime(get_template_directory() . '/css/blocks.css')));
 	}
-	add_action( 'wp_enqueue_scripts', 'rock_star_add_blocks_style' );
+	add_action('wp_enqueue_scripts', 'rock_star_add_blocks_style');
 endif; //rock_star_add_blocks_style
