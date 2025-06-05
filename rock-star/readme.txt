@@ -163,6 +163,9 @@ For more FAQs, visit https://catchthemes.com/frequently-asked-questions/
 
 == Changelog ==
 
+= 2.0.1 (Released: June 05, 2025) =
+* Bug Fixed: Font Awesome CSS issue
+
 = 2.0 (Released: June 02, 2025) =
 * Added: Twitter X, TikTok, Bluesky, and Threads icons
 * Removed: Polldaddy icon

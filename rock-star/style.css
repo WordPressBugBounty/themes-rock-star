@@ -4,7 +4,7 @@ Theme URI: https://catchthemes.com/themes/rock-star/
 Author: Catch Themes
 Author URI: https://catchthemes.com/
 Description: Rock Star is an incredibly sleek and Responsive Music WordPress Theme, built for artists, musician and bands aiming to promote their music and events. Created using HTML5 and CSS3, this aesthetically engaging theme is very easy to use. Simple modules and features are available so you can build a complete and custom website right away. Knowing the importance of the vast potential of social media, Rock Star allows you to update your followers regarding any activity, track release or event using the integrated social media support option. Its homepage is dominated by your logo, tagline, and a full-screen background image. With features like layouts, news ticker, featured content, featured slider, tours, breadcrumb, videos, social icons and instagram images gives you plenty of customizing power. This theme is translation ready. Check out Theme Instructions at https://catchthemes.com/theme-instructions/rock-star/, Support at https://catchthemes.com/support/ and Demo at https://catchthemes.com/demo/rock-star/
-Version: 2.0
+Version: 2.0.1
 Requires at least: 5.9
 Tested up to: 6.8
 Requires PHP: 5.6
@@ -59,6 +59,8 @@ and Blueprint http://www.blueprintcss.org/
  *   16.5 - Featured Music
  *   16.6 - Store
  *   16.7 - bbPress
+ *   16.8 - Hero Content
+ *   16.9 - Testimonial
  * 17.0 - Media Queries
  *   17.1 - >= 360px
  *   17.2 - >= 481px
@@ -296,26 +298,53 @@ optgroup {
 .fa-audio:before,
 #testimonial-section .entry-content:after,
 #testimonial-section .entry-summary:after,
-.search-submit:before {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
+.search-submit:before,
+.fa-picture:before {
 	display: inline-block;
-	font-family: "Font Awesome 6 Free";
-	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 900;
 	line-height: 1;
-	speak: none;
-	text-align: center;
-	text-decoration: inherit;
-	text-transform: none;
-	vertical-align: text-bottom;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
+.menu-item-has-children a:after,
+.dropdown-toggle:after,
+.search-submit:before,
+.controls a:before,
+.posted-on a:before,
+.byline a:before,
+.cat-links span+a:before,
+.tags-links span+a:before,
+.comments-link a:before,
+.edit-link a:before,
+.fa-collapse:before,
+.fa-play:before,
+.fa-rewind:before,
+.fa-fastforward:before,
+.fa-shuffle:before,
+.fa-audio:before,
+#testimonial-section .entry-content:after,
+#testimonial-section .entry-summary:after,
+.search-submit:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+}
+
+.social-navigation a:before,
+.cttours a:before,
+.social-icons .font-awesome:before,
 .font-awesome.fa-brands:before {
 	font-family: "Font Awesome 6 Brands";
 	font-weight: 400;
+}
+
+.cttours a[href$="/feed"]:before,
+.cttours a[href*="mailto:"]:before,
+.social-icons .font-awesome.fa-solid:before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
 }
 
 /* For Path icon */
@@ -1500,6 +1529,7 @@ a:active {
 	text-align: center;
 	font-size: 25px;
 	color: #111;
+	margin: 0 4px 4px 0;
 }
 
 /**
@@ -1964,7 +1994,7 @@ a:active {
 }
 
 .fa-x-twitter:hover,
-.cttours a[href*="s-twitter.com"]:hover {
+.cttours a[href*="x.com"]:hover {
 	background-color: #000000;
 	color: #ffffff;
 }
@@ -2315,7 +2345,6 @@ a:active {
 
 .fa-picture::before {
 	content: '\f03e';
-	font-family: 'Font Awesome 6 Free';
 }
 
 /* Newsletter Widget */
@@ -2472,105 +2501,113 @@ a:active {
 	color: #fff;
 }
 
-.cttours a[href$="/feed/"]:before {
-	content: "\f413";
+.cttours a[href$="/feed"]:before {
+	content: "\f09e";
 }
 
 .cttours a[href*="codepen.io"]:before {
-	content: "\f216";
+	content: "\f1cb";
 }
 
 .cttours a[href*="digg.com"]:before {
-	content: "\f221";
+	content: "\f1a6";
 }
 
 .cttours a[href*="dribbble.com"]:before {
-	content: "\f201";
+	content: "\f17d";
 }
 
 .cttours a[href*="dropbox.com"]:before {
-	content: "\f225";
+	content: "\f16b";
 }
 
 .cttours a[href*="facebook.com"]:before {
-	content: "\f204";
+	content: "\f39e";
 }
 
 .cttours a[href*="flickr.com"]:before {
-	content: "\f211";
+	content: "\f16e";
 }
 
 .cttours a[href*="foursquare.com"]:before {
-	content: "\f226";
+	content: "\f180";
 }
 
 .cttours a[href*="plus.google.com"]:before {
-	content: "\f206";
+	content: "\f2b3";
 }
 
 .cttours a[href*="github.com"]:before {
-	content: "\f200";
+	content: "\f09b";
 }
 
 .cttours a[href*="instagram.com"]:before {
-	content: "\f215";
+	content: "\f16d";
 }
 
 .cttours a[href*="linkedin.com"]:before {
-	content: "\f208";
+	content: "\f08c";
 }
 
 .cttours a[href*="pinterest.com"]:before {
-	content: "\f210";
-}
-
-.cttours a[href*="getpocket.com"]:before {
-	content: "\f224";
-}
-
-.cttours a[href*="polldaddy.com"]:before {
-	content: "\f217";
+	content: "\f0d2";
 }
 
 .cttours a[href*="reddit.com"]:before {
-	content: "\f222";
+	content: "\f1a1";
 }
 
 .cttours a[href*="stumbleupon.com"]:before {
-	content: "\f223";
+	content: "\f1a4";
 }
 
 .cttours a[href*="tumblr.com"]:before {
-	content: "\f214";
+	content: "\f173";
 }
 
 .cttours a[href*="twitter.com"]:before {
-	content: "\f202";
+	content: "\f099";
+}
+
+.cttours a[href*="x.com"]:before {
+	content: "\e61b";
 }
 
 .cttours a[href*="vimeo.com"]:before {
-	content: "\f212";
+	content: "\f40a";
 }
 
 .cttours a[href*="wordpress.com"]:before,
 .cttours a[href*="wordpress.org"]:before {
-	content: "\f205";
+	content: "\f19a";
 }
 
 .cttours a[href*="youtube.com"]:before {
-	content: "\f213";
+	content: "\f167";
 }
 
 .cttours a[href*="mailto:"]:before {
-	content: "\f410";
+	content: "\f0e0";
 }
 
 .cttours a[href*="spotify.com"]:before {
-	content: "\f515";
+	content: "\f1bc";
 }
 
 .cttours a[href*="twitch.tv"]:before {
-	content: "\f516";
+	content: "\f1e8";
+}
+
+.cttours a[href*="threads.com"]:before {
+	content: "\e618";
+}
+
+.cttours a[href*="bsky.app"]:before {
+	content: "\e671";
+}
+
+.cttours a[href*="tiktok.com"]:before {
+	content: "\e07b";
 }
 
 .cttours a[href$="/feed/"],
@@ -2592,6 +2629,7 @@ a:active {
 .cttours a[href*="stumbleupon.com"],
 .cttours a[href*="tumblr.com"],
 .cttours a[href*="twitter.com"],
+.cttours a[href*="x.com"],
 .cttours a[href*="vimeo.com"],
 .cttours a[href*="wordpress.com"],
 .cttours a[href*="wordpress.org"],
@@ -2606,10 +2644,14 @@ a:active {
 	color: #b7b7b7;
 	display: inline-block;
 	font-size: 14px;
-	padding: 2px 5px 1px;
+	line-height: 2;
+	padding: 0;
+	width: 30px;
+	text-align: center;
+	height: 30px;
 }
 
-.cttours a[href$="/feed/"] span,
+.cttours a[href$="/feed"] span,
 .cttours a[href*="codepen.io"] span,
 .cttours a[href*="digg.com"] span,
 .cttours a[href*="dribbble.com"] span,
@@ -2634,7 +2676,10 @@ a:active {
 .cttours a[href*="youtube.com"] span,
 .cttours a[href*="mailto:"] span,
 .cttours a[href*="spotify.com"] span,
-.cttours a[href*="twitch.tv"] span {
+.cttours a[href*="twitch.tv"] span,
+.cttours a[href*="threads.com"] span,
+.cttours a[href*="bsky.app"] span,
+.cttours a[href*="tiktok.com"] span {
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 1px;
 	overflow: hidden;
