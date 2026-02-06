@@ -2,7 +2,7 @@
 Contributors: catchthemes
 Tags: blog, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, front-page-post-form, post-formats, sticky-post, theme-options, threaded-comments, translation-ready
 Requires at least: 5.9
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -162,6 +162,14 @@ Number:
 For more FAQs, visit https://catchthemes.com/frequently-asked-questions/
 
 == Changelog ==
+
+= 2.1 (Released: December 16, 2025) =
+* Bug Fixed: Deprecated Function WP_Dependencies-add_data() warning after WordPress update 6.9
+* Updated: WordPress 6.9 ready
+
+= 2.0.2 (Released: October 13, 2025) =
+* Bug Fixed: Email icon mailto link generating malformed URL
+* Bug Fixed: Hover color issue on mail & feed icon
 
 = 2.0.1 (Released: June 05, 2025) =
 * Bug Fixed: Font Awesome CSS issue

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rock Star\n"
 "Report-Msgid-Bugs-To: https://catchthemes.com/contact-us/\n"
-"POT-Creation-Date: 2025-06-05 18:03+0545\n"
+"POT-Creation-Date: 2025-12-16 15:36+0545\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: Catch Themes <info@catchthemes.com>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: "
 "__;_e;_n:1,2;_x:1,2c;_ex:1,2c;esc_attr_e;esc_attr__;_nx:4c,1,2;esc_html__;esc_attr_x:1,2c;_x;esc_html_e;_nx_noop:4c,1,2;_n_noop:1,2;__ngettext_noop:1,2;_c,_nc,1,2\n"
@@ -91,8 +91,8 @@ msgstr ""
 msgid "Pages:"
 msgstr "Pages:"
 
-#: ../content-page.php:37 ../inc/core.php:681 ../inc/core.php:700
-#: ../inc/core.php:832
+#: ../content-page.php:37 ../inc/core.php:677 ../inc/core.php:696
+#: ../inc/core.php:828
 msgid "Edit"
 msgstr "Editer"
 
@@ -137,107 +137,107 @@ msgstr "Page %s"
 msgid "Primary Menu"
 msgstr "Premier menu"
 
-#: ../inc/core.php:294
+#: ../inc/core.php:290
 msgid "expand child menu"
 msgstr "développer menu enfant"
 
-#: ../inc/core.php:295
+#: ../inc/core.php:291
 msgid "collapse child menu"
 msgstr "fermer le menu enfant"
 
-#: ../inc/core.php:313
+#: ../inc/core.php:309
 msgctxt "Courgette font: on or off"
 msgid "on"
 msgstr "ouvert"
 
-#: ../inc/core.php:640
+#: ../inc/core.php:636
 msgid "Post navigation"
 msgstr "Navigation article"
 
-#: ../inc/core.php:650
+#: ../inc/core.php:646
 msgid "Previous page"
 msgstr "Article précédent"
 
-#: ../inc/core.php:651
+#: ../inc/core.php:647
 msgid "Next page"
 msgstr "Article suivant"
 
-#: ../inc/core.php:652 ../inc/customizer-includes/news-ticker.php:129
+#: ../inc/core.php:648 ../inc/customizer-includes/news-ticker.php:129
 #: ../inc/default-options.php:208 ../inc/default-options.php:240
 #: ../inc/default-options.php:337
 msgid "Page"
 msgstr "Page"
 
-#: ../inc/core.php:656
+#: ../inc/core.php:652
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Anciens articles"
 
-#: ../inc/core.php:657
+#: ../inc/core.php:653
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Récents articles <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../inc/core.php:681
+#: ../inc/core.php:677
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: ../inc/core.php:691
+#: ../inc/core.php:687
 #, php-format
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"citations dites\">citations dites:</span>"
 
-#: ../inc/core.php:697
+#: ../inc/core.php:693
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
-#: ../inc/core.php:704
+#: ../inc/core.php:700
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: ../inc/core.php:812 ../inc/core.php:931
+#: ../inc/core.php:808 ../inc/core.php:927
 msgctxt "Used before publish date."
 msgid "<span class=\"screen-reader-text\">Posted on</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Posté le </ span>"
 
-#: ../inc/core.php:820 ../inc/core.php:941
+#: ../inc/core.php:816 ../inc/core.php:937
 msgctxt "Used before post author name."
 msgid "<span class=\"screen-reader-text\">Author</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Auteur </ span>"
 
-#: ../inc/core.php:828
+#: ../inc/core.php:824
 msgid "Leave a comment"
 msgstr "Laisser un commentaire"
 
-#: ../inc/core.php:828
+#: ../inc/core.php:824
 msgid "1 Comment"
 msgstr "1 commentaire"
 
-#: ../inc/core.php:828
+#: ../inc/core.php:824
 msgid "% Comments"
 msgstr "% Commentaires"
 
-#: ../inc/core.php:850 ../inc/core.php:859 ../inc/core.php:893
-#: ../inc/core.php:904
+#: ../inc/core.php:846 ../inc/core.php:855 ../inc/core.php:889
+#: ../inc/core.php:900
 msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ", "
 
-#: ../inc/core.php:854 ../inc/core.php:897
+#: ../inc/core.php:850 ../inc/core.php:893
 msgctxt "Used before category names."
 msgid "<span class=\"screen-reader-text\">Categories</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Catégories </ span>"
 
-#: ../inc/core.php:863 ../inc/core.php:908
+#: ../inc/core.php:859 ../inc/core.php:904
 msgctxt "Used before tag names."
 msgid "<span class=\"screen-reader-text\">Tags</span>"
 msgstr "<span class = \"lecteur d'écran-text\"> Balises </ span>"
 
-#: ../inc/core.php:1429
+#: ../inc/core.php:1425
 msgid "Y"
 msgstr "Y"
 
-#: ../inc/core.php:1436
+#: ../inc/core.php:1432
 #, fuzzy, php-format
 #| msgctxt "1: Year, 2: Site Title with home URL"
 #| msgid "Copyright &copy; %1$s %2$s. All Rights Reserved."
@@ -245,31 +245,31 @@ msgctxt "1: Year, 2: Site Title with home URL, 3: Privacy Policy Link"
 msgid "Copyright &copy; %1$s %2$s. All Rights Reserved. %3$s"
 msgstr "Copyright &copy; %1$s %2$s. Tous Les Droits Sont Réservés."
 
-#: ../inc/core.php:1436
+#: ../inc/core.php:1432
 msgid "by"
 msgstr "par"
 
-#: ../inc/core.php:1499
+#: ../inc/core.php:1495
 msgid "Scroll Up"
 msgstr "Faire remonter"
 
-#: ../inc/core.php:1515
+#: ../inc/core.php:1511
 msgid "Posted on"
 msgstr "Posté le"
 
-#: ../inc/core.php:1520
+#: ../inc/core.php:1516
 msgid "By"
 msgstr "Par"
 
-#: ../inc/core.php:1622
+#: ../inc/core.php:1618
 msgid "Next post:"
 msgstr "Article suivant&nbsp;:"
 
-#: ../inc/core.php:1625
+#: ../inc/core.php:1621
 msgid "Previous post:"
 msgstr "Article précédent&nbsp;:"
 
-#: ../inc/core.php:1667 ../inc/customizer-includes/custom-controls.php:36
+#: ../inc/core.php:1663 ../inc/customizer-includes/custom-controls.php:36
 msgid ""
 "Hold down the Ctrl (windows) / Command (Mac) button to select multiple "
 "options."
@@ -277,60 +277,60 @@ msgstr ""
 "Maintenez le bouton / Commande (Mac) Ctrl (windows) pour sélectionner "
 "plusieurs options."
 
-#: ../inc/core.php:1754 ../inc/widgets/instagram.php:78
+#: ../inc/core.php:1750 ../inc/widgets/instagram.php:78
 msgid "Small"
 msgstr "Petit"
 
-#: ../inc/core.php:1755
+#: ../inc/core.php:1751
 msgid "S"
 msgstr ""
 
-#: ../inc/core.php:1760
+#: ../inc/core.php:1756
 msgid "Normal"
 msgstr ""
 
-#: ../inc/core.php:1761
+#: ../inc/core.php:1757
 msgid "M"
 msgstr ""
 
-#: ../inc/core.php:1766 ../inc/default-options.php:409
+#: ../inc/core.php:1762 ../inc/default-options.php:409
 #: ../inc/widgets/instagram.php:79
 msgid "Large"
 msgstr "Large"
 
-#: ../inc/core.php:1767
+#: ../inc/core.php:1763
 msgid "L"
 msgstr ""
 
-#: ../inc/core.php:1772
+#: ../inc/core.php:1768
 msgid "Huge"
 msgstr ""
 
-#: ../inc/core.php:1773
+#: ../inc/core.php:1769
 msgid "XL"
 msgstr ""
 
-#: ../inc/core.php:1783
+#: ../inc/core.php:1779
 msgid "White"
 msgstr ""
 
-#: ../inc/core.php:1788
+#: ../inc/core.php:1784
 msgid "Black"
 msgstr ""
 
-#: ../inc/core.php:1793
+#: ../inc/core.php:1789
 msgid "Gray"
 msgstr ""
 
-#: ../inc/core.php:1798
+#: ../inc/core.php:1794
 msgid "Blue"
 msgstr ""
 
-#: ../inc/core.php:1803
+#: ../inc/core.php:1799
 msgid "Yellow"
 msgstr ""
 
-#: ../inc/core.php:1808
+#: ../inc/core.php:1804
 #, fuzzy
 #| msgid "Reddit"
 msgid "Red"

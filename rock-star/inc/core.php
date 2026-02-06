@@ -222,10 +222,6 @@ function rock_star_scripts()
 
 	wp_enqueue_script('rock-star-navigation', trailingslashit(esc_url(get_template_directory_uri())) . 'js/navigation.min.js', array(), '20120206', true);
 
-	// Load the html5 shiv.
-	wp_enqueue_script('rock-star--html5', trailingslashit(esc_url(get_template_directory_uri())) . 'js/html5.min.js', array(), '3.7.3');
-	wp_script_add_data('rock-star-html5', 'conditional', 'lt IE 9');
-
 	wp_enqueue_script('rock-star-skip-link-focus-fix', trailingslashit(esc_url(get_template_directory_uri())) . 'js/skip-link-focus-fix.min.js', array(), '20130115', true);
 
 	/**
